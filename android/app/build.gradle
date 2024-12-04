@@ -1,0 +1,71 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.firebase.firebase-perf'
+}
+
+android {
+    namespace = "com.compasslink.rep"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion "27.0.12077973"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        minSdk = 30
+        targetSdk = flutter.targetSdkVersion
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../keystore/scanner.jks")
+            storePassword "Scan@2024"
+            keyAlias "scannerapp"
+            keyPassword "Scan@2024"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles(getDefaultProguardFile('proguard-android.txt'), "proguard-rules.pro")
+            signingConfig signingConfigs.release
+        }
+    }
+
+    flavorDimensions += "env"
+    productFlavors {
+        prod {
+            applicationId = "com.compasslink.rep"
+            versionCode 1
+            versionName "12.5.5"
+            manifestPlaceholders = [appName: "Compass Software"]
+        }
+
+        demo {
+            applicationId = "demo.compasslink.rep"
+            versionCode 1
+            versionName "12.5.5"
+            manifestPlaceholders = [appName: "[DEMO] Compass Software"]
+
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}

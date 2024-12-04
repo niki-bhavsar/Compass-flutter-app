@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+extension BuidcontextExtension on BuildContext {
+  AppLocalizations get l10n => AppLocalizations.of(this)!;
+
+  Future navigate(Widget route) async {
+    return Navigator.of(this).push(
+      MaterialPageRoute(
+        builder: (context) => route,
+      ),
+    );
+  }
+
+  Future navigateAndReplace(Widget route) async {
+    return Navigator.of(this).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => route,
+      ),
+    );
+  }
+
+  showSnackBar(
+    String message, {
+    Duration? duration,
+  }) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      behavior: SnackBarBehavior.fixed,
+      duration: duration ?? const Duration(seconds: 3),
+    );
+
+    ScaffoldMessenger.of(this)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(snackBar);
+  }
+
+  hideKeyboard() {
+    var scopeNode = FocusScope.of(this);
+    if (scopeNode.isFirstFocus) {
+      scopeNode.requestFocus(FocusNode());
+    }
+  }
+}

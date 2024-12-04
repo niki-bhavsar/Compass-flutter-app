@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1029894036515",
+    "project_id": "compass-409410",
+    "storage_bucket": "compass-409410.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029894036515:android:f9a18c2578741ee4766596",
+        "android_client_info": {
+          "package_name": "com.compasslink.rep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6pfidhW5haP0RXd6e-rtUmqBaGNZChIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029894036515:android:b62f459a2e3f73ed766596",
+        "android_client_info": {
+          "package_name": "com.compasslink.scanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6pfidhW5haP0RXd6e-rtUmqBaGNZChIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029894036515:android:0954be52ced2c170766596",
+        "android_client_info": {
+          "package_name": "demo.compasslink.rep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6pfidhW5haP0RXd6e-rtUmqBaGNZChIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,73 @@
+name: Notify Release
+description: 'Notify on google chat'
+
+inputs:
+  google_chat_webhook:
+    description: 'Google chat webhook'
+    required: true
+
+  image:
+    description: 'Logo url '
+    required: true
+
+  title:
+    description: 'Message title'
+    required: true
+    default: '{App Name}'
+
+  subtitle:
+    description: 'Message subtitle'
+    required: true
+    default: '{Message Info}'
+
+  app_link_action:
+    description: 'App link action'
+    required: false
+    default: 'Download App'
+
+  app_link:
+    description: 'App download link'
+    required: true
+    default: ''
+
+  tag_name:
+    description: 'Release/Tag name'
+    required: false
+    default: ''
+
+  tag_link:
+    description: 'Release/Tag Link'
+    required: false
+    default: ''
+
+runs:
+  using: "composite"
+  steps:
+    - name: Retrieve release note
+      id: release-note
+      shell: bash
+      run: |
+        {
+            echo 'RELEASE_NOTE<<EOF'
+            git log -1 --format=%B
+            echo EOF
+        } >> "$GITHUB_ENV"
+
+    - name: Notify on google chat
+      shell: bash
+      run: |
+        if [ -z "${{ env.TAG_ACTION }}" ]; then
+          java -jar .github/google-chat-client.jar --url '${{ env.GOOGLE_CHAT_WEBHOOK }}' --title "${{ env.ACTION_TITLE }}" --subtitle "${{ env.ACTION_SUBTITLE }}" --imageUrl '${{ env.ACTION_LOGO }}' --desc "${{ env.ACTION_DESCRIPTION }}" --action '${{ env.DOWNLOAD_ACTION }}' --actionUrl '${{ env.DOWNLOAD_URL }}'
+        else 
+          java -jar .github/google-chat-client.jar --url '${{ env.GOOGLE_CHAT_WEBHOOK }}' --title "${{ env.ACTION_TITLE }}" --subtitle "${{ env.ACTION_SUBTITLE }}" --imageUrl '${{ env.ACTION_LOGO }}' --desc "${{ env.ACTION_DESCRIPTION }}" --action '${{ env.DOWNLOAD_ACTION }}' --actionUrl '${{ env.DOWNLOAD_URL }}' --action '${{ env.TAG_ACTION }}' --actionUrl '${{ env.TAG_URL }}'
+        fi
+      env:
+        GOOGLE_CHAT_WEBHOOK: ${{ inputs.google_chat_webhook }}
+        ACTION_LOGO: ${{ inputs.image }}
+        ACTION_TITLE: ${{ inputs.title }}
+        ACTION_SUBTITLE: ${{ inputs.subtitle }}
+        ACTION_DESCRIPTION: "<b>Release Note:</b><br>${{ env.RELEASE_NOTE }}"
+        DOWNLOAD_ACTION: ${{ inputs.app_link_action }}
+        DOWNLOAD_URL: ${{ inputs.app_link }}
+        TAG_ACTION: ${{ inputs.tag_name }}
+        TAG_URL: ${{ inputs.tag_link }}

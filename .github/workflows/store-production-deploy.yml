@@ -1,0 +1,138 @@
+name: Store production deploy
+
+on:
+  push:
+    branches: [ 'main' ]
+
+  workflow_dispatch:
+    inputs:
+      deploy_android:
+        description: 'Deploy Android App'
+        required: false
+        default: true
+        type: boolean
+
+      deploy_ios:
+        description: 'Deploy iOS App'
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  actions: write
+  contents: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  FLAVOR: "production"
+  APP_NAME: "Compass Software"
+  WEB_LINK: "https://www.compass-link.com/"
+  APP_STORE_LINK: "https://testflight.apple.com/join/nsneE1Ej"
+  PLAY_STORE_LINK: "https://play.google.com/store/apps/details?id=com.compasslink.rep"
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    if: ${{ github.event.inputs.deploy_android == 'true' }}
+    steps:
+      - name: 📚 Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Environment
+        uses: ./.github/actions/setup-environment
+        with:
+          gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
+          ruby_working_dir: "./android"
+
+      - name: 🚧 Save google_play_service_account.json
+        working-directory: ./android
+        run: |
+          echo "${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_BASE64 }}" | base64 --decode > google_play_service_account.json
+
+      - name: 🚀 Build & Deploy to PlayStore
+        working-directory: ./android
+        run: bundle exec fastlane playstore_deploy
+        env:
+          CONFIG: ${{ env.FLAVOR }}
+
+      - name: 🚧 Get app version
+        working-directory: ./android
+        run: |
+          echo "VERSION_NAME=$(./gradlew -q androidVersionName -PflavorName=${{ env.FLAVOR }} | tail -1)" >> $GITHUB_ENV
+
+      - name: 🔖 Create GitHub Release
+        uses: ./.github/actions/github-release
+        with:
+          app_name: ${{ env.APP_NAME }}
+          create_tag: 'false'
+          create_release: 'true'
+          version_name: ${{ env.VERSION_NAME }}
+
+      - name: 🔔 Notify release on google chat
+        uses: ./.github/actions/notify-google-chat
+        with:
+          google_chat_webhook: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          image: ${{ vars.APP_LOGO }}
+          title: ${{ env.APP_NAME }}
+          subtitle: "v${{ env.VERSION_NAME }} is deployed on PlayStore"
+          app_link: ${{ env.PLAY_STORE_LINK }}
+          tag_name: "v${{ env.VERSION_NAME }} Release"
+          tag_link: "${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ env.VERSION_NAME }}"
+
+  build-ios:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    if: ${{ github.event.inputs.deploy_ios == 'true' }}
+    steps:
+      - name: 📚 Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Environment
+        uses: ./.github/actions/setup-environment
+        with:
+          gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
+          ruby_working_dir: "./ios"
+
+      - name: Setup Apple Signing
+        uses: ./.github/actions/apple-signing
+        with:
+          certificate_base64: ${{ secrets.APPLE_SIGNING_CERTIFICATE_BASE64 }}
+          certificate_password: ${{ secrets.APPLE_SIGNING_CERTIFICATE_PASSWORD }}
+          provision_profile_base64: ${{ secrets.APPLE_SIGNING_PROFILE_APPSTORE_PRD_BASE64 }}
+          keychain_password: ${{ secrets.APPLE_SIGNING_KEYCHAIN_PASSWORD }}
+
+      - name: 🚧 Save app_store_connect_api_key.p8
+        working-directory: ./ios
+        run: |
+          echo "${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}" | base64 --decode > app_store_connect_api_key.p8
+
+      - name: 🚧 Install Pods
+        working-directory: ./ios
+        run: pod install
+
+      - name: 🚀 Build & Deploy to AppStore
+        working-directory: ./ios
+        run: bundle exec fastlane appstore_deploy
+        env:
+          CONFIG: ${{ env.FLAVOR }}
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+
+      - name: 🚧 Get app version
+        working-directory: ./ios
+        run: |
+          echo "VERSION_NAME=$(xcodebuild -target Runner -scheme 'KernelCamp[PRD]' -showBuildSettings  | grep -i 'MARKETING_VERSION' | sed 's/[ ]*MARKETING_VERSION = //')" >> $GITHUB_ENV
+
+      - name: 🔔 Notify release on google chat
+        uses: ./.github/actions/notify-google-chat
+        with:
+          google_chat_webhook: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          image: ${{ vars.APP_LOGO }}
+          title: ${{ env.APP_NAME }}
+          subtitle: "v${{ env.VERSION_NAME }} is deployed on AppStore"
+          app_link: ${{ env.APP_STORE_LINK }}
