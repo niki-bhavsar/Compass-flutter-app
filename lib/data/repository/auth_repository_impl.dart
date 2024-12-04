@@ -4,6 +4,7 @@ import 'package:compass_software/data/service/auth_service.dart';
 import 'package:compass_software/data/service/model/call_result.dart';
 import 'package:compass_software/data/shared_pref/session_pref.dart';
 
+import '../entity/distributor_code_entity.dart';
 import 'auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -39,5 +40,16 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   void logout() {
     sessionPref.clear();
+  }
+
+
+  @override
+  Future<CallResult<DistributorCodeEntity>> setDistributorCode({
+    required String code,
+  }) async {
+    CallResult<DistributorCodeEntity> response = await authService.setDistributorCode(code);
+    if (response is Success<DistributorCodeEntity>) {
+    }
+    return response;
   }
 }
