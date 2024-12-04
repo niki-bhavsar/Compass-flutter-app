@@ -37,7 +37,7 @@ class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
               if (state is DistributorCodeErrorState) {
                 return Column(
                   children: [
-                   const SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       state.error,
                       style: Theme.of(context)

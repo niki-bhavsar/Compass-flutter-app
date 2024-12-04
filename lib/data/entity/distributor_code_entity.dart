@@ -13,14 +13,14 @@ class DistributorEntity {
     this.status,
     this.error,
     this.message,
-    required this.distributorInfo,
+    this.distributorInfo,
   });
 
   factory DistributorEntity.fromJson(Map<String, dynamic> json) => DistributorEntity(
         status: json["status"],
         error: json["error"],
         message: json["message"],
-        distributorInfo: DistributorInfo.fromJson(json["values"]),
+        distributorInfo: json["values"] == null ? null : DistributorInfo.fromJson(json["values"]),
       );
 }
 

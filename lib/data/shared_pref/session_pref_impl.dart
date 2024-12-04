@@ -34,6 +34,8 @@ class SessionPrefImpl implements SessionPref {
 
   @override
   DistributorInfo? getDistributorInfo() {
+    return null;
+
     // TODO: implement getDistributorInfo
   }
 
