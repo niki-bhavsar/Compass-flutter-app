@@ -14,17 +14,18 @@ final appSetup = AppSetup();
 
 class AppSetup {
   Future preLaunchSetup() async {
+    _setupLogging();
+
     await registerGetItModules();
 
     await dotenv.load(fileName: ".env");
 
     _setOrientations();
 
-    _setupLogging();
+    await _setupFirebase();
   }
 
   Future postLaunchSetup() async {
-    await _setupFirebase();
     await _postSetupDeviceLocaleConfig();
   }
 

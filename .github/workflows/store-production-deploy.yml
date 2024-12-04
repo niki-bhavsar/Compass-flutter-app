@@ -43,11 +43,14 @@ jobs:
       - name: 📚 Checkout Repo
         uses: actions/checkout@v4
 
-      - name: 📦 Setup Environment
+      - name: 📦 Setup Tools
         uses: ./.github/actions/setup-environment
         with:
           gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
           ruby_working_dir: "./android"
+
+      - name: 📦 Setup Environment
+        run: cp production.env .env
 
       - name: 🚧 Save google_play_service_account.json
         working-directory: ./android

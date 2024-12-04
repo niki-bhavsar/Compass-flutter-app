@@ -17,8 +17,11 @@ jobs:
       - name: 📚 Checkout Repo
         uses: actions/checkout@v4
 
-      - name: 📦 Setup Environment
+      - name: 📦 Setup Tools
         uses: ./.github/actions/setup-environment
+
+      - name: 📦 Setup Environment
+        run: cp demo.env .env
 
       - name: ✅ Performs static code analysis
         run: dart analyze --fatal-infos

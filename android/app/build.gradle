@@ -60,7 +60,7 @@ android {
             applicationId = "demo.compasslink.rep"
             versionCode 1
             versionName "12.5.5"
-            manifestPlaceholders = [appName: "[DEMO] Compass Software"]
+            manifestPlaceholders = [appName: "Compass Software"]
 
         }
     }
