@@ -21,7 +21,7 @@ class AppSetup {
     _setOrientations();
 
     _setupLogging();
-     _setupFirebase();
+    _setupFirebase();
   }
 
   Future postLaunchSetup() async {

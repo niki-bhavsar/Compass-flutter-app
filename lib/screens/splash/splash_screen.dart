@@ -23,7 +23,6 @@ class SplashScreen extends StatelessWidget {
             if (state is SplashFetchedState) {
               Widget screen = const DistributorCodeScreen();
               context.navigateAndReplace(screen);
-
             }
           },
           child: const SplashAppLogo(),

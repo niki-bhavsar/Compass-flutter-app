@@ -1,3 +1,4 @@
+import 'package:compass_software/data/entity/distributor_code_entity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'session_pref.dart';
@@ -25,5 +26,15 @@ class SessionPrefImpl implements SessionPref {
 
     await prefs.remove(_isLoggedIn);
     await prefs.reload();
+  }
+
+  @override
+  DistributorInfo? getDistributorInfo() {
+    // TODO: implement getDistributorInfo
+  }
+
+  @override
+  setDistributorInfo(DistributorInfo info) {
+    // TODO: implement setDistributorInfo
   }
 }

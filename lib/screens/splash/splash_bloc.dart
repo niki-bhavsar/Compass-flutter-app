@@ -15,7 +15,6 @@ class SplashBloc extends Cubit<SplashState> {
     // Post launch setup
     await appSetup.postLaunchSetup();
 
-
     // Check if user is logged in or not
     bool isLoggedIn = sessionPref.isLoggedIn();
     if (isLoggedIn) {}

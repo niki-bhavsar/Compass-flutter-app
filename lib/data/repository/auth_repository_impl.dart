@@ -42,13 +42,13 @@ class AuthRepositoryImpl implements AuthRepository {
     sessionPref.clear();
   }
 
-
   @override
-  Future<CallResult<DistributorCodeEntity>> setDistributorCode({
+  Future<CallResult<DistributorCodeEntity>> verifyDistributorCode({
     required String code,
   }) async {
-    CallResult<DistributorCodeEntity> response = await authService.setDistributorCode(code);
+    CallResult<DistributorCodeEntity> response = await authService.verifyDistributorCode(code);
     if (response is Success<DistributorCodeEntity>) {
+      // write logic to save distributor info
     }
     return response;
   }

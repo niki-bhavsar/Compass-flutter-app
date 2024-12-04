@@ -1,4 +1,3 @@
-
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/distributor_code/distributor_code_bloc.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,6 @@ class DistributorCodeFormView extends StatefulWidget {
 }
 
 class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
-
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<DistributorCodeBloc>();
@@ -24,7 +22,7 @@ class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
         children: [
           TextFormField(
             decoration: InputDecoration(
-              labelText: context.l10n.authJourney_distributorCodeScreen_codeInput_hint,
+              labelText: context.l10n.distributorCodeScreen_codeInput_hint,
               filled: false,
             ),
             style: Theme.of(context).textTheme.bodyMedium,
@@ -36,7 +34,6 @@ class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
             autofillHints: const [AutofillHints.email],
           ),
           SizedBox(height: 16),
-
           BlocBuilder<DistributorCodeBloc, DistributorCodeState>(
             builder: (context, state) {
               if (state is DistributorCodeErrorState) {
@@ -45,7 +42,7 @@ class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
                     SizedBox(height: 16),
                     Text(
                       state.code == 200
-                          ? context.l10n.authJourney_distributorCodeScreen_invalidCode_message
+                          ? context.l10n.distributorCodeScreen_invalidCode_message
                           : state.error,
                       style: Theme.of(context)
                           .textTheme
@@ -66,10 +63,8 @@ class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
 
   String? _distributorCodeValidator(String? text) {
     if (text == null || text.trim().isEmpty) {
-      return context.l10n.authJourney_distributorCodeScreen_codeInput_emptyError;
+      return context.l10n.distributorCodeScreen_codeInput_emptyError;
     }
     return null;
   }
-
-
 }

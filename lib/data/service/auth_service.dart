@@ -6,7 +6,6 @@ import 'base_service.dart';
 import 'model/call_result.dart';
 
 class AuthService extends BaseService {
-
   Future<CallResult<LoginEntity>> login(
     String email,
     String password,
@@ -33,9 +32,7 @@ class AuthService extends BaseService {
     );
   }
 
-  Future<CallResult<DistributorCodeEntity>> setDistributorCode(
-      String code
-      ) {
+  Future<CallResult<DistributorCodeEntity>> verifyDistributorCode(String code) {
     final params = <String, String>{};
     params["app_code"] = code;
 

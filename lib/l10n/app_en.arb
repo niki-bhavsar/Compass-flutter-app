@@ -1,8 +1,8 @@
 {
   "app_name": "Compass Software",
   "action_next" : "Next",
-  "authJourney_distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
-  "authJourney_distributorCodeScreen_codeInput_hint" : "code",
-  "authJourney_distributorCodeScreen_codeInput_emptyError" : "Please enter code",
-  "authJourney_distributorCodeScreen_invalidCode_message" : "The code you entered is invalid."
+  "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
+  "distributorCodeScreen_codeInput_hint" : "code",
+  "distributorCodeScreen_codeInput_emptyError" : "Please enter code",
+  "distributorCodeScreen_invalidCode_message" : "The code you entered is invalid."
 }

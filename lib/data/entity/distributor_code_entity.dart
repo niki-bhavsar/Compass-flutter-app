@@ -1,25 +1,26 @@
 import 'dart:convert';
 
-DistributorCodeEntity distributorCodeEntityFromJson(String str) => DistributorCodeEntity.fromJson(json.decode(str));
+DistributorCodeEntity distributorCodeEntityFromJson(String str) =>
+    DistributorCodeEntity.fromJson(json.decode(str));
 
 class DistributorCodeEntity {
-  final String? method;
   final String? status;
+  final String? message;
   final int? error;
   final DistributorInfo distributorInfo;
 
   DistributorCodeEntity({
-     this.method,
     this.status,
     this.error,
+    this.message,
     required this.distributorInfo,
   });
 
   factory DistributorCodeEntity.fromJson(Map<String, dynamic> json) => DistributorCodeEntity(
-    method: json["method"],
-    status: json["status"],
-    error: json["error"],
-    distributorInfo: DistributorInfo.fromJson(json["values"]),
+        status: json["status"],
+        error: json["error"],
+        message: json["message"],
+        distributorInfo: DistributorInfo.fromJson(json["values"]),
       );
 }
 
@@ -32,7 +33,6 @@ class DistributorInfo {
   final String logoUrl;
   final String refUrl;
 
-
   DistributorInfo({
     required this.webId,
     required this.webName,
@@ -44,12 +44,12 @@ class DistributorInfo {
   });
 
   factory DistributorInfo.fromJson(Map<String, dynamic> json) => DistributorInfo(
-    webId: json["webid"],
-    webName: json["webname"],
-    webDBSuffix: json["webdbsuffix"],
-    appStatus: json["app_status"],
-    webSuffix: json["websuffix"],
-    logoUrl: json["logourl"],
-    refUrl: json["ref_url"],
+        webId: json["webid"],
+        webName: json["webname"],
+        webDBSuffix: json["webdbsuffix"],
+        appStatus: json["app_status"],
+        webSuffix: json["websuffix"],
+        logoUrl: json["logourl"],
+        refUrl: json["ref_url"],
       );
 }
