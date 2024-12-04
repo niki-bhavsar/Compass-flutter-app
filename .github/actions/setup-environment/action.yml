@@ -36,6 +36,10 @@ runs:
       shell: bash
       run: flutter pub get
 
+    - name: Generate localization resources
+      shell: bash
+      run: flutter gen-l10n
+
     - name: Install ruby
       uses: ruby/setup-ruby@v1
       if: ${{ inputs.ruby_working_dir != '' }}
