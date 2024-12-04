@@ -2,7 +2,6 @@ import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/distributor_code/distributor_code_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../bloc/distributor_code_state.dart';
 
 class DistributorCodeFormView extends StatefulWidget {
@@ -27,23 +26,20 @@ class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
             ),
             style: Theme.of(context).textTheme.bodyMedium,
             controller: bloc.codeTextController,
-            textInputAction: TextInputAction.next,
-            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.done,
+            keyboardType: TextInputType.number,
             autovalidateMode: bloc.autoValidateMode,
             validator: _distributorCodeValidator,
-            autofillHints: const [AutofillHints.email],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           BlocBuilder<DistributorCodeBloc, DistributorCodeState>(
             builder: (context, state) {
               if (state is DistributorCodeErrorState) {
                 return Column(
                   children: [
-                    SizedBox(height: 16),
+                   const SizedBox(height: 16),
                     Text(
-                      state.code == 200
-                          ? context.l10n.distributorCodeScreen_invalidCode_message
-                          : state.error,
+                      state.error,
                       style: Theme.of(context)
                           .textTheme
                           .labelMedium

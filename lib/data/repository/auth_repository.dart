@@ -16,7 +16,7 @@ abstract interface class AuthRepository {
 
   void logout();
 
-  Future<CallResult<DistributorCodeEntity>> verifyDistributorCode({
+  Future<CallResult<DistributorEntity>> verifyDistributorCode({
     required String code,
   });
 }

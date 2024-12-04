@@ -1,22 +1,22 @@
 import 'dart:convert';
 
-DistributorCodeEntity distributorCodeEntityFromJson(String str) =>
-    DistributorCodeEntity.fromJson(json.decode(str));
+DistributorEntity distributorCodeEntityFromJson(String str) =>
+    DistributorEntity.fromJson(json.decode(str));
 
-class DistributorCodeEntity {
+class DistributorEntity {
   final String? status;
   final String? message;
   final int? error;
   final DistributorInfo distributorInfo;
 
-  DistributorCodeEntity({
+  DistributorEntity({
     this.status,
     this.error,
     this.message,
     required this.distributorInfo,
   });
 
-  factory DistributorCodeEntity.fromJson(Map<String, dynamic> json) => DistributorCodeEntity(
+  factory DistributorEntity.fromJson(Map<String, dynamic> json) => DistributorEntity(
         status: json["status"],
         error: json["error"],
         message: json["message"],

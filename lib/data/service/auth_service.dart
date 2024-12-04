@@ -32,12 +32,12 @@ class AuthService extends BaseService {
     );
   }
 
-  Future<CallResult<DistributorCodeEntity>> verifyDistributorCode(String code) {
+  Future<CallResult<DistributorEntity>> verifyDistributorCode(String code) {
     final params = <String, String>{};
     params["app_code"] = code;
 
     final uri = toApiUri("setdistributor");
-    return safePostApiCall<DistributorCodeEntity>(
+    return safePostApiCall<DistributorEntity>(
       uri: uri,
       jsonParser: distributorCodeEntityFromJson,
       params: params,

@@ -27,16 +27,16 @@ class DistributorCodeBloc extends Bloc<DistributorCodeEvent, DistributorCodeStat
     if (isValidForm) {
       emit(DistributorCodeLoadingState());
 
-      CallResult<DistributorCodeEntity> response = await authRepository.verifyDistributorCode(
+      CallResult<DistributorEntity> response = await authRepository.verifyDistributorCode(
         code: codeTextController.text.trim(),
       );
 
-      if (response is Failure<DistributorCodeEntity>) {
+      if (response is Failure<DistributorEntity>) {
         emit(DistributorCodeErrorState(
           error: response.cause,
           code: response.code,
         ));
-      } else if (response is Success<DistributorCodeEntity>) {
+      } else if (response is Success<DistributorEntity>) {
         emit(DistributorCodeSuccessState(message: response.data.message));
       }
     } else {

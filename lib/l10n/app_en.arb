@@ -2,7 +2,7 @@
   "app_name": "Compass Software",
   "action_next" : "Next",
   "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
-  "distributorCodeScreen_codeInput_hint" : "code",
+  "distributorCodeScreen_codeInput_hint" : "Code",
   "distributorCodeScreen_codeInput_emptyError" : "Please enter code",
   "distributorCodeScreen_invalidCode_message" : "The code you entered is invalid."
 }
