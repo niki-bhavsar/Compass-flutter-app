@@ -48,7 +48,10 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     CallResult<DistributorEntity> response = await authService.verifyDistributorCode(code);
     if (response is Success<DistributorEntity>) {
-      // write logic to save distributor info
+      final distributor = response.data.distributorInfo;
+      if (distributor != null) {
+        sessionPref.setDistributorInfo(distributor);
+      }
     }
     return response;
   }

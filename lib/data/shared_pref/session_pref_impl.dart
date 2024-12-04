@@ -5,6 +5,10 @@ import 'session_pref.dart';
 
 class SessionPrefImpl implements SessionPref {
   static const String _isLoggedIn = 'profile.is_logged_in';
+  static const String _webID = 'session.web_id';
+  static const String _webName = 'session.web_name';
+  static const String _webDBSuffix = 'session.webDBSuffix';
+  static const String _logoUrl = 'session.logo_url';
 
   final SharedPreferences prefs;
 
@@ -35,6 +39,9 @@ class SessionPrefImpl implements SessionPref {
 
   @override
   setDistributorInfo(DistributorInfo info) {
-    // TODO: implement setDistributorInfo
+    prefs.setString(_webID, info.webId);
+    prefs.setString(_webName, info.webName);
+    prefs.setString(_webDBSuffix, info.webDBSuffix);
+    prefs.setString(_logoUrl, info.logoUrl);
   }
 }

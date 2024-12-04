@@ -7,7 +7,7 @@ class DistributorEntity {
   final String? status;
   final String? message;
   final int? error;
-  final DistributorInfo distributorInfo;
+  final DistributorInfo? distributorInfo;
 
   DistributorEntity({
     this.status,
