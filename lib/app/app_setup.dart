@@ -25,7 +25,6 @@ class AppSetup {
   }
 
   Future postLaunchSetup() async {
-    // await _setupFirebase();
     await _postSetupDeviceLocaleConfig();
   }
 
