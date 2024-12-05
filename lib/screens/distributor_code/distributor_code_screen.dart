@@ -33,22 +33,19 @@ class _DistributorCodeView extends StatelessWidget {
       body: Center(
           child: SingleChildScrollView(
               child: BlocConsumer<DistributorCodeBloc, DistributorCodeState>(
-                listener: (BuildContext context, DistributorCodeState state) {
-                  if (state is DistributorCodeSuccessState) {
-                    context.navigate(const LoginTestPage());
-                  }
-                  },
-                builder: (BuildContext context, DistributorCodeState state) {
-                  return ProgressView(
-                      isLoading: state is DistributorCodeLoadingState,
-                      child: IntrinsicHeight(
-                        child: _DistributorCodeLayout(),
-                      )
-                  );
-                  },
-              )
-          )
-      ),
+        listener: (BuildContext context, DistributorCodeState state) {
+          if (state is DistributorCodeSuccessState) {
+            context.navigate(const LoginTestPage());
+          }
+        },
+        builder: (BuildContext context, DistributorCodeState state) {
+          return ProgressView(
+              isLoading: state is DistributorCodeLoadingState,
+              child: IntrinsicHeight(
+                child: _DistributorCodeLayout(),
+              ));
+        },
+      ))),
     );
   }
 }
