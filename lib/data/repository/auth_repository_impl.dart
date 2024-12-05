@@ -21,10 +21,10 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<CallResult<LoginEntity>> login({
-    required String email,
+    required String username,
     required String password,
   }) async {
-    CallResult<LoginEntity> response = await authService.login(email, password);
+    CallResult<LoginEntity> response = await authService.login(username, password);
     if (response is Success<LoginEntity>) {
       sessionPref.setLoggedIn(true);
       // write logic to save access token

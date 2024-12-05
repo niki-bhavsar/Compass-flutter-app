@@ -4,5 +4,14 @@
   "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
   "distributorCodeScreen_codeInput_hint" : "Code",
   "distributorCodeScreen_codeInput_emptyError" : "Please enter code",
-  "distributorCodeScreen_invalidCode_message" : "The code you entered is invalid."
+  "distributorCodeScreen_invalidCode_message" : "The code you entered is invalid.",
+
+  "loginScreen_title" : "Login",
+  "loginScreen_subtitle" : "Please login to your Account",
+  "loginScreen_login_action" : "Login",
+  "loginScreen_emailInput_hint" : "Email",
+  "loginScreen_passwordInput_hint" : "Password",
+  "loginScreen_emailInput_emptyError" : "Please enter email",
+  "loginScreen_passwordInput_emptyError" : "Please enter password",
+  "loginScreen_invalidCredential_message" : "The email or password you entered is incorrect."
 }

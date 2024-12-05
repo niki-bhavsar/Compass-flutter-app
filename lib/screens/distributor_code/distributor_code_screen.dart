@@ -1,7 +1,7 @@
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/distributor_code/bloc/distributor_code_state.dart';
 import 'package:compass_software/screens/distributor_code/widget/distributor_code_form_view.dart';
-import 'package:compass_software/screens/loginTest/login_test.dart';
+import 'package:compass_software/screens/login/login_screen.dart';
 import 'package:compass_software/widget/progress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +35,7 @@ class _DistributorCodeView extends StatelessWidget {
           child: BlocConsumer<DistributorCodeBloc, DistributorCodeState>(
             listener: (BuildContext context, DistributorCodeState state) {
               if (state is DistributorCodeSuccessState) {
-                context.navigate(const LoginTestPage());
+                context.navigate(const LoginScreen());
               }
             },
             builder: (BuildContext context, DistributorCodeState state) {

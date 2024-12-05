@@ -7,12 +7,14 @@ import 'model/call_result.dart';
 
 class AuthService extends BaseService {
   Future<CallResult<LoginEntity>> login(
-    String email,
+    String username,
     String password,
   ) {
     final params = <String, String>{};
-    params["email"] = email;
+    params["username"] = username;
     params["password"] = password;
+    params["webdbsuffix"] = "GD";
+    params["webid"] = "25";
 
     final uri = toApiUri("login");
     return safePostApiCall<LoginEntity>(

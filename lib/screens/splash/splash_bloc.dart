@@ -17,9 +17,15 @@ class SplashBloc extends Cubit<SplashState> {
 
     // Check if user is logged in or not
     bool isLoggedIn = sessionPref.isLoggedIn();
-    if (isLoggedIn) {}
+    if (isLoggedIn) {
+      // TODO: Check app version
+    }
 
+    bool isDistributorSaved = sessionPref.getDistributorInfo() != null;
     isLoggedIn = sessionPref.isLoggedIn();
-    emit(SplashFetchedState(isLoggedIn: isLoggedIn));
+    emit(SplashFetchedState(
+      isLoggedIn: isLoggedIn,
+      isDistributorSaved: isDistributorSaved,
+    ));
   }
 }

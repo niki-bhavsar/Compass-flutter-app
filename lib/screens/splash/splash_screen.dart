@@ -1,6 +1,7 @@
 import 'package:compass_software/data/shared_pref/session_pref.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/distributor_code/distributor_code_screen.dart';
+import 'package:compass_software/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,8 +22,13 @@ class SplashScreen extends StatelessWidget {
         child: BlocListener<SplashBloc, SplashState>(
           listener: (context, state) {
             if (state is SplashFetchedState) {
-              Widget screen = const DistributorCodeScreen();
-              context.navigateAndReplace(screen);
+              if (!state.isDistributorSaved) {
+                context.navigateAndReplace(const DistributorCodeScreen());
+              } else if (state.isLoggedIn || state.isDistributorSaved) {
+                context.navigateAndReplace(const LoginScreen());
+              } else {
+                context.navigateAndReplace(const DistributorCodeScreen());
+              }
             }
           },
           child: const SplashAppLogo(),

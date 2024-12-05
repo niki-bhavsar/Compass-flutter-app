@@ -8,7 +8,7 @@ abstract interface class AuthRepository {
   bool isLoggedIn();
 
   Future<CallResult<LoginEntity>> login({
-    required String email,
+    required String username,
     required String password,
   });
 

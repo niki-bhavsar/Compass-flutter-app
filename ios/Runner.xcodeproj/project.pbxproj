@@ -517,6 +517,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUDSU2DYB7;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 12.5.5;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Compass Software";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
@@ -655,6 +656,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUDSU2DYB7;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 12.5.5;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Compass Software";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
@@ -759,6 +761,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUDSU2DYB7;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 12.5.5;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Compass Software";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
@@ -917,6 +920,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUDSU2DYB7;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 12.5.5;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Compass Software";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
@@ -949,6 +953,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUDSU2DYB7;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 12.5.5;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Compass Software";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";

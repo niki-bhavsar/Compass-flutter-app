@@ -34,13 +34,19 @@ class SessionPrefImpl implements SessionPref {
 
   @override
   DistributorInfo? getDistributorInfo() {
-    DistributorInfo info = DistributorInfo(
-      webId: prefs.getString(_webID) ?? "",
-      webName: prefs.getString(_webName) ?? "",
-      webDBSuffix: prefs.getString(_webDBSuffix) ?? "",
+    final webId = prefs.getString(_webID) ?? "";
+    final webName = prefs.getString(_webName) ?? "";
+    final webDBSuffix = prefs.getString(_webDBSuffix) ?? "";
+
+    if (webId.isEmpty || webName.isEmpty || webDBSuffix.isEmpty) {
+      return null;
+    }
+    return DistributorInfo(
+      webId: webId,
+      webName: webDBSuffix,
+      webDBSuffix: webDBSuffix,
       logoUrl: prefs.getString(_webLogoUrl) ?? "",
     );
-    return info;
   }
 
   @override
