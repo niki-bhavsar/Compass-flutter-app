@@ -21,10 +21,10 @@ class AppSetup {
     _setOrientations();
 
     _setupLogging();
-    _setupFirebase();
   }
 
   Future postLaunchSetup() async {
+    await _setupFirebase();
     await _postSetupDeviceLocaleConfig();
   }
 
