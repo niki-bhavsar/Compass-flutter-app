@@ -1,4 +1,5 @@
 import 'package:compass_software/data/entity/base_entity.dart';
+import 'package:compass_software/data/entity/distributor_code_entity.dart';
 import 'package:compass_software/data/entity/login_entity.dart';
 
 import 'base_service.dart';
@@ -27,6 +28,18 @@ class AuthService extends BaseService {
     return safePostApiCall<BaseEntity>(
       uri: uri,
       jsonParser: baseEntityFromJson,
+      params: params,
+    );
+  }
+
+  Future<CallResult<DistributorEntity>> verifyDistributorCode(String code) {
+    final params = <String, String>{};
+    params["app_code"] = code;
+
+    final uri = toApiUri("setdistributor");
+    return safePostApiCall<DistributorEntity>(
+      uri: uri,
+      jsonParser: distributorCodeEntityFromJson,
       params: params,
     );
   }

@@ -79,7 +79,7 @@ class AppTheme {
       textStyle: WidgetStateProperty.all<TextStyle>(
         const TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: 14,
+          fontSize: 20,
           letterSpacing: 1.5,
         ),
       ),
@@ -97,7 +97,7 @@ class AppTheme {
       textStyle: WidgetStateProperty.all<TextStyle>(
         const TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: 14,
+          fontSize: 20,
           letterSpacing: 1.5,
         ),
       ),
@@ -120,6 +120,6 @@ class AppTheme {
   );
 
   static const BorderRadius _defaultBorderRadius = BorderRadius.all(
-    Radius.circular(8.0),
+    Radius.circular(6.0),
   );
 }
