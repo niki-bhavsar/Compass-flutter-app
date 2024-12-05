@@ -8,7 +8,7 @@ class SessionPrefImpl implements SessionPref {
   static const String _webID = 'session.web_id';
   static const String _webName = 'session.web_name';
   static const String _webDBSuffix = 'session.web_db_suffix';
-  static const String _logoUrl = 'session.logo_url';
+  static const String _webLogoUrl = 'session.web_logo_url';
 
   final SharedPreferences prefs;
 
@@ -35,17 +35,12 @@ class SessionPrefImpl implements SessionPref {
   @override
   DistributorInfo? getDistributorInfo() {
     DistributorInfo info = DistributorInfo(
-        webId: prefs.getString(_webID) ?? "",
-        webName: prefs.getString(_webName) ?? "",
-        webDBSuffix: prefs.getString(_webDBSuffix) ?? "",
-        appStatus: "",
-        webSuffix: "",
-        logoUrl: prefs.getString(_logoUrl) ?? "",
-        refUrl: "");
-
+      webId: prefs.getString(_webID) ?? "",
+      webName: prefs.getString(_webName) ?? "",
+      webDBSuffix: prefs.getString(_webDBSuffix) ?? "",
+      logoUrl: prefs.getString(_webLogoUrl) ?? "",
+    );
     return info;
-
-    // TODO: implement getDistributorInfo
   }
 
   @override
@@ -53,6 +48,6 @@ class SessionPrefImpl implements SessionPref {
     prefs.setString(_webID, info.webId);
     prefs.setString(_webName, info.webName);
     prefs.setString(_webDBSuffix, info.webDBSuffix);
-    prefs.setString(_logoUrl, info.logoUrl);
+    prefs.setString(_webLogoUrl, info.logoUrl);
   }
 }

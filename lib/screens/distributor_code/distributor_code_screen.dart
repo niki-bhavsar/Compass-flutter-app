@@ -31,21 +31,24 @@ class _DistributorCodeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: SingleChildScrollView(
-              child: BlocConsumer<DistributorCodeBloc, DistributorCodeState>(
-        listener: (BuildContext context, DistributorCodeState state) {
-          if (state is DistributorCodeSuccessState) {
-            context.navigate(const LoginTestPage());
-          }
-        },
-        builder: (BuildContext context, DistributorCodeState state) {
-          return ProgressView(
-              isLoading: state is DistributorCodeLoadingState,
-              child: IntrinsicHeight(
-                child: _DistributorCodeLayout(),
-              ));
-        },
-      ))),
+        child: SingleChildScrollView(
+          child: BlocConsumer<DistributorCodeBloc, DistributorCodeState>(
+            listener: (BuildContext context, DistributorCodeState state) {
+              if (state is DistributorCodeSuccessState) {
+                context.navigate(const LoginTestPage());
+              }
+            },
+            builder: (BuildContext context, DistributorCodeState state) {
+              return ProgressView(
+                isLoading: state is DistributorCodeLoadingState,
+                child: IntrinsicHeight(
+                  child: _DistributorCodeLayout(),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
@@ -65,7 +68,9 @@ class _DistributorCodeLayout extends StatelessWidget {
             context.l10n.distributorCodeScreen_codeInput_title,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w600),
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.w600,
+                ),
           ),
           const SizedBox(height: 16),
           const DistributorCodeFormView(),
