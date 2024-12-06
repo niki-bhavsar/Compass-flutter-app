@@ -23,8 +23,11 @@ jobs:
       - name: 📦 Setup Environment
         run: cp demo.env .env
 
-      - name: ✅ Performs static code analysis
+      - name: ✅ Performs dart static code analysis
         run: dart analyze --fatal-infos
+
+      - name: ✅ Performs flutter static code analysis
+        run: flutter analyze --fatal-infos
 
       - name: ✅ Check Dart formatting guidelines
         run: |

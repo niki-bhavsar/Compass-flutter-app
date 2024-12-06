@@ -1,7 +1,7 @@
 import 'package:compass_software/data/entity/login_entity.dart';
 import 'package:compass_software/data/repository/auth_repository.dart';
 import 'package:compass_software/data/service/model/call_result.dart';
-import 'package:compass_software/screens/Login/state/login_state.dart';
+import 'package:compass_software/screens/login/state/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 

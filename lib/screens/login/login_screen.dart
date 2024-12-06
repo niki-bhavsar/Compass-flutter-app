@@ -1,6 +1,6 @@
 import 'package:compass_software/extension/build_context_extension.dart';
-import 'package:compass_software/screens/Login/state/login_state.dart';
-import 'package:compass_software/screens/Login/widget/Login_form_view.dart';
+import 'package:compass_software/screens/login/state/login_state.dart';
+import 'package:compass_software/screens/login/widget/login_form_view.dart';
 import 'package:compass_software/screens/bottom_menu/bottom_menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
