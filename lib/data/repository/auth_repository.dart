@@ -14,7 +14,7 @@ abstract interface class AuthRepository {
 
   Future<CallResult<BaseEntity>> checkAppVersion();
 
-  void logout();
+  Future<CallResult<BaseEntity>> logout();
 
   Future<CallResult<DistributorEntity>> verifyDistributorCode({
     required String code,

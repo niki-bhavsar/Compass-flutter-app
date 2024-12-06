@@ -2,6 +2,7 @@ import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/login/state/login_state.dart';
 import 'package:compass_software/screens/login/widget/login_form_view.dart';
 import 'package:compass_software/screens/bottom_menu/bottom_menu_screen.dart';
+import 'package:compass_software/widget/progress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,23 +40,23 @@ class _LoginScreen extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            // return ProgressView(
-            //   isLoading: state is LoginLoadingState,
-            return LayoutBuilder(
-              builder: (context, constraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: constraints.maxHeight,
-                      maxWidth: 600,
+            return ProgressView(
+              isLoading: state is LoginLoadingState,
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                        maxWidth: 600,
+                      ),
+                      child: IntrinsicHeight(
+                        child: _LoginLayout(),
+                      ),
                     ),
-                    child: IntrinsicHeight(
-                      child: _LoginLayout(),
-                    ),
-                  ),
-                );
-              },
-              // ),
+                  );
+                },
+              ),
             );
           },
         ),

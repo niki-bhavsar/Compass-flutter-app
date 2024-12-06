@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:compass_software/theme/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -14,7 +12,7 @@ class ImageView extends StatelessWidget {
   const ImageView({
     this.imageUrl,
     this.placeholder,
-    this.defaultImage = Assets.appLogo,
+    this.defaultImage = "",
     this.isLocal = false,
     super.key,
   });

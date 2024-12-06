@@ -1,4 +1,5 @@
 import 'package:compass_software/extension/build_context_extension.dart';
+import 'package:compass_software/screens/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
@@ -57,7 +58,7 @@ class _BottomMenuScreenState extends State<BottomMenuScreen> {
       case 2:
         return const Placeholder();
       case 3:
-        return const Placeholder();
+        return const SettingScreen();
       default:
         return const Placeholder();
     }
