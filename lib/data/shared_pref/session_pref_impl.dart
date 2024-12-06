@@ -9,6 +9,7 @@ class SessionPrefImpl implements SessionPref {
   static const String _webName = 'session.web_name';
   static const String _webDBSuffix = 'session.web_db_suffix';
   static const String _webLogoUrl = 'session.web_logo_url';
+  static const String _authToken = 'session.auth_token';
 
   final SharedPreferences prefs;
 
@@ -21,6 +22,16 @@ class SessionPrefImpl implements SessionPref {
 
   @override
   bool isLoggedIn() => prefs.getBool(_isLoggedIn) ?? false;
+
+  @override
+  String getAuthToken() {
+    return prefs.getString(_authToken) ?? "";
+  }
+
+  @override
+  setAuthToken(String authToken) {
+    prefs.setString(_authToken, authToken);
+  }
 
   @override
   Future clear() async {

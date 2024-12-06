@@ -131,6 +131,30 @@ class BaseService {
     }
   }
 
+  Future<CallResult<T>> safeDeleteApiCall<T>({
+    required Uri uri,
+    required Map<String, dynamic> params,
+    required T Function(String arg) jsonParser,
+    String? contentType = 'application/x-www-form-urlencoded',
+  }) async {
+    try {
+      Logger.root.info("Request Params: $params");
+      Response? response = await dio?.delete(
+        uri.toString(),
+        data: params,
+      );
+
+      _handleResponse(response);
+
+      return Success(jsonParser.call(response?.data.toString() ?? ""));
+    } on Exception catch (exception, stacktrace) {
+      return _parseError(exception, stacktrace);
+    } catch (error, stacktrace) {
+      // executed for errors of all types other than Exception
+      return _parseError(error, stacktrace);
+    }
+  }
+
   Future<CallResult<T>> safeGetApiCall<T>({
     required Uri uri,
     required T Function(String arg) jsonParser,
@@ -205,6 +229,7 @@ class BaseService {
   HttpException? _handleResponse(Response? response) {
     const defaultMsg = "Something went wrong!";
     final statusCode = response?.statusCode ?? 0;
+
     if (statusCode == 500) {
       return HttpException(
         cause: defaultMsg,

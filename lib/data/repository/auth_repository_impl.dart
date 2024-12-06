@@ -26,7 +26,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     CallResult<LoginEntity> response = await authService.login(username, password);
     if (response is Success<LoginEntity>) {
-      sessionPref.setLoggedIn(true);
+      final user = response.data.loginUserInfo;
+      if (user != null) {
+        sessionPref.setLoggedIn(true);
+        sessionPref.setAuthToken(user.authToken ?? "");
+      }
+
       // write logic to save access token
     }
     return response;
@@ -38,8 +43,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  void logout() {
-    sessionPref.clear();
+  Future<CallResult<BaseEntity>> logout() async{
+   final response =   await authService.logout();
+   if(response is Success<BaseEntity>){
+     sessionPref.setLoggedIn(false);
+   }
+    return response;
   }
 
   @override

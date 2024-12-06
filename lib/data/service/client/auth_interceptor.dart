@@ -1,7 +1,10 @@
 import 'package:compass_software/utils/app_utils.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
+
+import '../../shared_pref/session_pref.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
@@ -9,6 +12,23 @@ class AuthInterceptor extends Interceptor {
     Logger.root.info('REQUEST[${options.method}] => PATH: ${options.path}');
     options.headers['Accept'] = 'application/json';
     options.headers['appversion'] = await AppUtils.getAppVersion();
+
+    final sessionPref = GetIt.instance.get<SessionPref>();
+    if(sessionPref.isLoggedIn()){
+      options.headers['authtoken'] = sessionPref.getAuthToken();
+    }
+    //Set distributor info in header
+    final distributorInfo = sessionPref.getDistributorInfo();
+    options.headers['webid'] = distributorInfo?.webId;
+    options.headers['webdbsuffix'] = distributorInfo?.webDBSuffix;
+
+    //Set distributor info in request parameter
+    options.data ??= <String, dynamic>{};
+    final optionData = options.data;
+    if (optionData is Map<String, dynamic>) {
+      optionData['webid'] = distributorInfo?.webId ?? "";
+      optionData['webdbsuffix'] = distributorInfo?.webDBSuffix ?? "";
+    }
 
     if (kDebugMode) {
       options.headers.forEach((key, value) {

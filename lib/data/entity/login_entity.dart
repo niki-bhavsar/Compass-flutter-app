@@ -4,20 +4,20 @@ LoginEntity loginEntityFromJson(String str) => LoginEntity.fromJson(json.decode(
 
 class LoginEntity {
   final String message;
-  final LoginInfo values;
+  final LoginUserInfo? loginUserInfo;
 
   LoginEntity({
     required this.message,
-    required this.values,
+    required this.loginUserInfo,
   });
 
   factory LoginEntity.fromJson(Map<String, dynamic> json) => LoginEntity(
-        message: json["message"],
-        values: LoginInfo.fromJson(json["values"]),
+    message: json["message"],
+    loginUserInfo: json["values"] == null ? null : LoginUserInfo.fromJson(json["values"]),
       );
 }
 
-class LoginInfo {
+class LoginUserInfo {
   final String repId;
   final String username;
   final String firstName;
@@ -33,7 +33,7 @@ class LoginInfo {
   final String webId;
   final String webDbSuffix;
 
-  LoginInfo({
+  LoginUserInfo({
     required this.repId,
     required this.username,
     required this.firstName,
@@ -50,9 +50,9 @@ class LoginInfo {
     required this.webDbSuffix,
   });
 
-  factory LoginInfo.fromRawJson(String str) => LoginInfo.fromJson(json.decode(str));
+  factory LoginUserInfo.fromRawJson(String str) => LoginUserInfo.fromJson(json.decode(str));
 
-  factory LoginInfo.fromJson(Map<String, dynamic> json) => LoginInfo(
+  factory LoginUserInfo.fromJson(Map<String, dynamic> json) => LoginUserInfo(
         repId: json["rep_id"],
         username: json["username"],
         firstName: json["first_name"],

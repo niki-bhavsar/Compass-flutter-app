@@ -1,6 +1,8 @@
 {
   "app_name": "Compass Software",
   "action_next" : "Next",
+  "action_ok" : "Ok",
+  "action_cancel" : "Cancel",
   "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
   "distributorCodeScreen_codeInput_hint" : "Code",
   "distributorCodeScreen_codeInput_emptyError" : "Please enter code",
@@ -18,6 +20,33 @@
   "bottomMenuScreen_tabSchedule_title" : "Schedule",
   "bottomMenuScreen_tabProfiles_title" : "Profiles",
   "bottomMenuScreen_tabSales_title" : "Sales",
-  "bottomMenuScreen_tabSettings_title" : "Settings"
+  "bottomMenuScreen_tabSettings_title" : "Settings",
 
+
+  "settingsScreen_title" : "Settings",
+
+  "settingsScreen_account_title" : "Account",
+  "settingsScreen_account_my_preference": "My Preference",
+  "settingsScreen_account_my_profile" : "My Profile",
+  "settingsScreen_account_change_password" : "Change Password",
+
+  "settingsScreen_favourite_title" : "Favourite",
+  "settingsScreen_favourite_surgeon" : "Favourite Surgeons",
+  "settingsScreen_favourite_hospital" : "Favourite Hospitals",
+  "settingsScreen_favourite_procedure" : "Favourite Procedures",
+
+  "settingsScreen_reports_title" : "Reports",
+  "settingsScreen_reports_backorder_report" : "BackOrder Report",
+  "settingsScreen_reports_sales_snapshot" : "Sales Snapshot",
+
+  "settingsScreen_general_title" : "General",
+  "settingsScreen_general_manage_templates" : "Manage Templates",
+  "settingsScreen_general_technique_library" : "Technique Library",
+  "settingsScreen_general_announcement" : "Announcements",
+  "settingsScreen_general_logout" : "Logout",
+
+  "settingsScreen_my_preference_auto_capture" : "Auto Capture",
+  "settingsScreen_my_preference_distributor_info" : "Distributor Info",
+
+  "settingsScreen_logoutDialog_message":"Are you sure you want to logout?"
 }
