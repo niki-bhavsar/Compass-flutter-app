@@ -13,5 +13,11 @@
   "loginScreen_passwordInput_hint" : "Password",
   "loginScreen_emailInput_emptyError" : "Please enter email",
   "loginScreen_passwordInput_emptyError" : "Please enter password",
-  "loginScreen_invalidCredential_message" : "The email or password you entered is incorrect."
+  "loginScreen_invalidCredential_message" : "The email or password you entered is incorrect.",
+
+  "bottomMenuScreen_tabSchedule_title" : "Schedule",
+  "bottomMenuScreen_tabProfiles_title" : "Profiles",
+  "bottomMenuScreen_tabSales_title" : "Sales",
+  "bottomMenuScreen_tabSettings_title" : "Settings"
+
 }

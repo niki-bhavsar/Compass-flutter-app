@@ -1,6 +1,7 @@
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/Login/state/login_state.dart';
 import 'package:compass_software/screens/Login/widget/Login_form_view.dart';
+import 'package:compass_software/screens/bottom_menu/bottom_menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,8 +35,7 @@ class _LoginScreen extends StatelessWidget {
           },
           listener: (context, state) {
             if (state is LoginSuccessState) {
-              // todo: redirect to dashboard
-              context.showSnackBar(state.message);
+              context.navigate(const BottomMenuScreen());
             }
           },
           builder: (context, state) {

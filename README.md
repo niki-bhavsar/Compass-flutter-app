@@ -14,16 +14,17 @@
   flutter pub get
   ```
 
+##### 2. Generate localization resources
   ```sh
   flutter gen-l10n
   ```
 
-##### 2. Run Android App
+##### 3. Run Android App
   ```sh
   flutter run --flavor prod
   ```
 
-##### 3. Run iOS App
+##### 4. Run iOS App
   ```sh
   flutter run --flavor Compass[PROD]
   ```

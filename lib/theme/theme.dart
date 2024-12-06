@@ -24,6 +24,9 @@ class AppTheme {
     outlinedButtonTheme: _outlinedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
     visualDensity: VisualDensity.standard,
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: lightColorScheme.tertiaryFixedDim,
+    ),
     appBarTheme: AppBarTheme(
       centerTitle: false,
       titleTextStyle: AppTypography.textTheme.headlineLarge?.copyWith(
@@ -51,6 +54,9 @@ class AppTheme {
     outlinedButtonTheme: _outlinedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
     visualDensity: VisualDensity.standard,
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: darkColorScheme.secondaryContainer,
+    ),
     appBarTheme: AppBarTheme(
       centerTitle: false,
       titleTextStyle:
