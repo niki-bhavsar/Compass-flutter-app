@@ -3,6 +3,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 enum SvgIcons {
   appIcon("appIcon"),
+  appLogo("appLogo"),
+  myPreference("myPreference"),
+  myProfile("myProfile"),
+  changePassword("changePassword"),
+  surgeon("surgeon"),
+  hospital("hospital"),
+  procedure("procedure"),
+  backOrder("backOrder"),
+  salesSnapshot("salesSnapshot"),
+  manageTemplates("manageTemplates"),
+  techniqueLibrary("techniqueLibrary"),
+  announcement("announcement"),
+  logout("logout"),
   ;
 
   final String slug;

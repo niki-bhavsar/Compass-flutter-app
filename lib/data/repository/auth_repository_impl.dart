@@ -29,7 +29,7 @@ class AuthRepositoryImpl implements AuthRepository {
       final user = response.data.loginUserInfo;
       if (user != null) {
         sessionPref.setLoggedIn(true);
-        sessionPref.setAuthToken(user.authToken ?? "");
+        sessionPref.setAuthToken(user.authToken);
       }
 
       // write logic to save access token
@@ -43,11 +43,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<CallResult<BaseEntity>> logout() async{
-   final response =   await authService.logout();
-   if(response is Success<BaseEntity>){
-     sessionPref.setLoggedIn(false);
-   }
+  Future<CallResult<BaseEntity>> logout() async {
+    final response = await authService.logout();
+    if (response is Success<BaseEntity>) {
+      sessionPref.setLoggedIn(false);
+      //TODO: on distributor remove we have to remove distributor info also
+    }
     return response;
   }
 

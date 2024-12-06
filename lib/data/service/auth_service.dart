@@ -1,9 +1,6 @@
 import 'package:compass_software/data/entity/base_entity.dart';
 import 'package:compass_software/data/entity/distributor_code_entity.dart';
 import 'package:compass_software/data/entity/login_entity.dart';
-import 'package:get_it/get_it.dart';
-
-import '../shared_pref/session_pref.dart';
 import 'base_service.dart';
 import 'model/call_result.dart';
 
@@ -50,8 +47,10 @@ class AuthService extends BaseService {
 
   Future<CallResult<BaseEntity>> logout() {
     final uri = toApiUri("logout");
-    return safeDeleteApiCall(uri: uri,
+    return safeDeleteApiCall(
+      uri: uri,
       params: {},
-      jsonParser: baseEntityFromJson,);
+      jsonParser: baseEntityFromJson,
+    );
   }
 }

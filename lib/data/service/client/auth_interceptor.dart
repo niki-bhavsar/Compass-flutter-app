@@ -14,7 +14,7 @@ class AuthInterceptor extends Interceptor {
     options.headers['appversion'] = await AppUtils.getAppVersion();
 
     final sessionPref = GetIt.instance.get<SessionPref>();
-    if(sessionPref.isLoggedIn()){
+    if (sessionPref.isLoggedIn()) {
       options.headers['authtoken'] = sessionPref.getAuthToken();
     }
     //Set distributor info in header

@@ -12,8 +12,8 @@ class LoginEntity {
   });
 
   factory LoginEntity.fromJson(Map<String, dynamic> json) => LoginEntity(
-    message: json["message"],
-    loginUserInfo: json["values"] == null ? null : LoginUserInfo.fromJson(json["values"]),
+        message: json["message"],
+        loginUserInfo: json["values"] == null ? null : LoginUserInfo.fromJson(json["values"]),
       );
 }
 

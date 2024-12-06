@@ -1,3 +1,4 @@
+import 'package:compass_software/widget/svg_icons.dart';
 import 'package:flutter/material.dart';
 import '../model/setting_menu.dart';
 
@@ -8,7 +9,6 @@ class SettingMenuCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final icon = settingMenu.icon;
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(
         horizontal: 16,
@@ -24,10 +24,10 @@ class SettingMenuCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         padding: const EdgeInsets.all(8.0),
-        child: Icon(
-          icon,
+        child: SvgIcon(
+          settingMenu.svgIcon,
           size: 20,
-          color: Theme.of(context).colorScheme.onSurface,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
       onTap: () {
