@@ -25,7 +25,7 @@ const lightColorScheme = ColorScheme(
   outline: Color(0xff767680),
   outlineVariant: Color(0xffc6c5d0),
   shadow: Color(0xff000000),
-  scrim: Color(0xff000000),
+  scrim: Color(0xff757575),
   inverseSurface: Color(0xff2f3036),
   inversePrimary: Color(0xffb6c4ff),
   primaryFixed: Color(0xffdce1ff),

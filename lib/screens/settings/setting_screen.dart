@@ -1,6 +1,7 @@
 import 'package:compass_software/data/repository/auth_repository.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/firebase/analytics.dart';
+import 'package:compass_software/screens/my_preference/my_preference_screen.dart';
 import 'package:compass_software/screens/settings/state/setting_event.dart';
 import 'package:compass_software/screens/settings/widget/setting_card.dart';
 import 'package:compass_software/widget/app_dialog.dart';
@@ -22,7 +23,9 @@ class SettingScreen extends StatelessWidget {
       SettingMenu(
         title: context.l10n.settingsScreen_account_my_preference,
         svgIcon: SvgIcons.myPreference,
-        onTap: (context) {},
+        onTap: (context) {
+          context.navigate(const MyPreferenceScreen());
+        },
       ),
       SettingMenu(
         title: context.l10n.settingsScreen_account_my_profile,

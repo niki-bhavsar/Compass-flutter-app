@@ -16,6 +16,7 @@ enum SvgIcons {
   techniqueLibrary("techniqueLibrary"),
   announcement("announcement"),
   logout("logout"),
+  delete("delete"),
   ;
 
   final String slug;

@@ -14,4 +14,8 @@ abstract interface class SessionPref {
   bool isLoggedIn();
 
   Future clear();
+
+  setAutoCaptureEnabled(bool isEnabled);
+
+  bool getAutoCaptureEnabled();
 }

@@ -3,6 +3,8 @@
   "action_next" : "Next",
   "action_ok" : "Ok",
   "action_cancel" : "Cancel",
+  "action_yes" : "Yes",
+  "action_no" : "No",
   "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
   "distributorCodeScreen_codeInput_hint" : "Code",
   "distributorCodeScreen_codeInput_emptyError" : "Please enter code",
@@ -44,9 +46,19 @@
   "settingsScreen_general_technique_library" : "Technique Library",
   "settingsScreen_general_announcement" : "Announcements",
   "settingsScreen_general_logout" : "Logout",
+  "settingsScreen_logoutDialog_message":"Are you sure you want to logout?",
 
-  "settingsScreen_my_preference_auto_capture" : "Auto Capture",
-  "settingsScreen_my_preference_distributor_info" : "Distributor Info",
+  "my_preferenceScreen_auto_capture_title" : "Auto Capture",
+  "my_preferenceScreen_auto_capture_info" :"Enable auto-capture for continuous barcode scanning or disable it for point-and-shoot mode.",
+  "myPreferenceScreen_removeDialog_message":"Are you sure you want to remove this distributor? You will be logged out and need to enter a distributor code to log in again.",
 
-  "settingsScreen_logoutDialog_message":"Are you sure you want to logout?"
+"myPreferenceScreen_distributor_info" : "You’re logged in as a {distributor} representative. Click Delete to remove the distributor.",
+"@myPreferenceScreen_distributor_info": {
+  "description": "A message with a distributor name",
+  "placeholders": {
+    "distributor": {
+      "type": "String"
+    }
+  }
+}
 }

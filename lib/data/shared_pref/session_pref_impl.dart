@@ -10,6 +10,7 @@ class SessionPrefImpl implements SessionPref {
   static const String _webDBSuffix = 'session.web_db_suffix';
   static const String _webLogoUrl = 'session.web_logo_url';
   static const String _authToken = 'session.auth_token';
+  static const String _isAutoCapture = 'session.is_auto_capture';
 
   final SharedPreferences prefs;
 
@@ -35,11 +36,13 @@ class SessionPrefImpl implements SessionPref {
 
   @override
   Future clear() async {
-    final SharedPreferences prefs1 = await SharedPreferences.getInstance();
-    await prefs1.remove(_isLoggedIn);
-    await prefs1.reload();
-
     await prefs.remove(_isLoggedIn);
+    await prefs.remove(_isAutoCapture);
+    await prefs.remove(_webID);
+    await prefs.remove(_webName);
+    await prefs.remove(_webDBSuffix);
+    await prefs.remove(_webLogoUrl);
+    await prefs.remove(_authToken);
     await prefs.reload();
   }
 
@@ -54,7 +57,7 @@ class SessionPrefImpl implements SessionPref {
     }
     return DistributorInfo(
       webId: webId,
-      webName: webDBSuffix,
+      webName: webName,
       webDBSuffix: webDBSuffix,
       logoUrl: prefs.getString(_webLogoUrl) ?? "",
     );
@@ -66,5 +69,15 @@ class SessionPrefImpl implements SessionPref {
     prefs.setString(_webName, info.webName);
     prefs.setString(_webDBSuffix, info.webDBSuffix);
     prefs.setString(_webLogoUrl, info.logoUrl);
+  }
+
+  @override
+  bool getAutoCaptureEnabled() {
+    return prefs.getBool(_isAutoCapture) ?? false;
+  }
+
+  @override
+  setAutoCaptureEnabled(bool isEnabled) {
+    prefs.setBool(_isAutoCapture, isEnabled);
   }
 }
