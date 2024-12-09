@@ -1,6 +1,7 @@
 import 'package:compass_software/data/repository/auth_repository.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/firebase/analytics.dart';
+import 'package:compass_software/screens/change_password/change_password_screen.dart';
 import 'package:compass_software/screens/my_preference/my_preference_screen.dart';
 import 'package:compass_software/screens/settings/state/setting_event.dart';
 import 'package:compass_software/screens/settings/widget/setting_card.dart';
@@ -8,6 +9,8 @@ import 'package:compass_software/widget/app_dialog.dart';
 import 'package:compass_software/widget/progress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import '../../data/shared_pref/session_pref.dart';
 import '../../widget/svg_icons.dart';
 import '../login/login_screen.dart';
 import 'model/setting_menu.dart';
@@ -35,7 +38,9 @@ class SettingScreen extends StatelessWidget {
       SettingMenu(
         title: context.l10n.settingsScreen_account_change_password,
         svgIcon: SvgIcons.changePassword,
-        onTap: (context) {},
+        onTap: (context) {
+          context.navigate(const ChangePasswordScreen());
+        },
       ),
     ];
     final List<SettingMenu> favouriteMenus = <SettingMenu>[
@@ -133,7 +138,8 @@ class SettingScreen extends StatelessWidget {
             return current is SettingLogoutState;
           },
           listener: (context, state) {
-            // TODO: It depends...
+            final sessionPref = GetIt.instance.get<SessionPref>();
+            sessionPref.setLoggedIn(false);
             context.navigateAndReplace(const LoginScreen());
           },
           builder: (context, state) {

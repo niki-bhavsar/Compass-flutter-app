@@ -110,7 +110,7 @@ class BaseService {
     required Uri uri,
     required Map<String, dynamic> params,
     required T Function(String arg) jsonParser,
-    String? contentType = 'application/x-www-form-urlencoded',
+    String? contentType = 'application/json',
   }) async {
     try {
       Logger.root.info("Request Params: $params");

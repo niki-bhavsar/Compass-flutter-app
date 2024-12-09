@@ -5,6 +5,8 @@ import 'package:compass_software/data/shared_pref/session_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import '../data/repository/profile_repository.dart';
+import '../data/service/profile_service.dart';
 
 class AppBlocProvider extends StatelessWidget {
   final Widget child;
@@ -24,6 +26,12 @@ class AppBlocProvider extends StatelessWidget {
         RepositoryProvider<AuthRepository>(
           create: (context) => AuthRepositoryImpl(
             authService: AuthService(),
+            sessionPref: context.read<SessionPref>(),
+          ),
+        ),
+        RepositoryProvider<ProfileRepository>(
+          create: (context) => ProfileRepositoryImpl(
+            profileService: ProfileService(),
             sessionPref: context.read<SessionPref>(),
           ),
         ),

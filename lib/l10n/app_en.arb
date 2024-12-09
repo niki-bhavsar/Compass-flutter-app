@@ -5,6 +5,7 @@
   "action_cancel" : "Cancel",
   "action_yes" : "Yes",
   "action_no" : "No",
+  "action_update" : "Update",
   "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
   "distributorCodeScreen_codeInput_hint" : "Code",
   "distributorCodeScreen_codeInput_emptyError" : "Please enter code",
@@ -60,5 +61,13 @@
       "type": "String"
     }
   }
-}
+},
+  "changePasswordScreen_currentPassword":"Current Password",
+  "changePasswordScreen_newPassword":"New Password",
+  "changePasswordScreen_confirmPassword":"Confirm Password",
+  "changePasswordScreen_currentPassword_validation":"Please enter current password",
+  "changePasswordScreen_newPassword_validation":"Please enter new password",
+  "changePasswordScreen_confirmPassword_validation":"Please enter confirm password",
+  "changePasswordScreen_password_match":"Password does not match",
+  "changePasswordScreen_success_message":"Password updated successfully."
 }
