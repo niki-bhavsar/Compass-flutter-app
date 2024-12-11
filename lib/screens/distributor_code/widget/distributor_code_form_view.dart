@@ -1,6 +1,7 @@
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/distributor_code/distributor_code_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/distributor_code_state.dart';
 
@@ -30,6 +31,9 @@ class _DistributorCodeFormViewState extends State<DistributorCodeFormView> {
             keyboardType: TextInputType.number,
             autovalidateMode: bloc.autoValidateMode,
             validator: _distributorCodeValidator,
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(4),
+            ],
           ),
           const SizedBox(height: 16),
           BlocBuilder<DistributorCodeBloc, DistributorCodeState>(

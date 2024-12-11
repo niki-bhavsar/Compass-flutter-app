@@ -6,6 +6,10 @@
   "action_yes" : "Yes",
   "action_no" : "No",
   "action_update" : "Update",
+  "action_try_again":"Try Again",
+  "stateView_message":"Something went wrong!",
+  "no_data_message":"No data Found",
+
   "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
   "distributorCodeScreen_codeInput_hint" : "Code",
   "distributorCodeScreen_codeInput_emptyError" : "Please enter code",
@@ -69,5 +73,32 @@
   "changePasswordScreen_newPassword_validation":"Please enter new password",
   "changePasswordScreen_confirmPassword_validation":"Please enter confirm password",
   "changePasswordScreen_password_match":"Password does not match",
-  "changePasswordScreen_success_message":"Password updated successfully."
+  "changePasswordScreen_success_message":"Password updated successfully.",
+
+  "myProfileScreen_personal_info_title":"Personal Info",
+  "myProfileScreen_user_name_hint":"Username",
+  "myProfileScreen_first_name_hint":"First Name",
+  "myProfileScreen_last_name_hint":"Last Name",
+  "myProfileScreen_group_hint":"Group",
+  "myProfileScreen_email_hint":"Email",
+  "myProfileScreen_wwid_hint":"WWId",
+
+  "myProfileScreen_address_title":"Address",
+  "myProfileScreen_address_hint":"Address",
+  "myProfileScreen_city_hint":"City",
+  "myProfileScreen_state_hint":"State",
+  "myProfileScreen_zip_hint":"Zip",
+  "myProfileScreen_searchStates":"Search States",
+  "myProfileScreen_zip_invalidError":"Please enter valid zip",
+
+  "myProfileScreen_contact_info_title":"Contact Info",
+  "myProfileScreen_cell_number_hint":"Cell Number",
+  "myProfileScreen_phone_number_hint":"Phone Number",
+  "myProfileScreen_fax_number_hint":"Fax Number",
+  "myProfileScreen_account_number_hint":"Account Number",
+  "myProfileScreen_contact_info_hint":"Contact Info",
+  "myProfileScreen_cell_number_invalidError":"Please enter valid cell number",
+  "myProfileScreen_phone_number_invalidError":"Please enter valid phone number",
+  "myProfileScreen_fax_number_invalidError":"Please enter valid fax number"
+
 }
