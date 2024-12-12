@@ -158,8 +158,14 @@ class BaseService {
   Future<CallResult<T>> safeGetApiCall<T>({
     required Uri uri,
     required T Function(String arg) jsonParser,
+    Map<String, String>? headers,
   }) async {
     try {
+      if (headers != null) {
+        headers.forEach((key, value) {
+          dio?.options.headers[key] = value;
+        });
+      }
       Response? response = await dio?.get(uri.toString());
 
       _handleResponse(response);

@@ -12,8 +12,6 @@ class AuthService extends BaseService {
     final params = <String, String>{};
     params["username"] = username;
     params["password"] = password;
-    params["webdbsuffix"] = "GD";
-    params["webid"] = "25";
 
     final uri = toApiUri("login");
     return safePostApiCall<LoginEntity>(

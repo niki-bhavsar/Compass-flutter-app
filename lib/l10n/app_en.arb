@@ -29,6 +29,22 @@
   "bottomMenuScreen_tabSales_title" : "Sales",
   "bottomMenuScreen_tabSettings_title" : "Settings",
 
+  "stateView_message":"Something went wrong!",
+  "tryAgain_button_title":"Try Again",
+
+  "announcementScreen_title":"Announcements",
+  "announcementScreen_noData_message":"No Announcements Found",
+
+  "techniqueLibraryScreen_title":"Technique Library",
+  "techniqueLibraryScreen_noData_message":"No Technique Library Found",
+
+  "techniqueLibraryScreen_search_hint":"Search",
+  "techniqueLibraryScreen_anatomy_title":"Anatomy",
+  "techniqueLibraryScreen_system_title":"System",
+
+  
+
+
 
   "settingsScreen_title" : "Settings",
 
@@ -73,6 +89,7 @@
   "changePasswordScreen_newPassword_validation":"Please enter new password",
   "changePasswordScreen_confirmPassword_validation":"Please enter confirm password",
   "changePasswordScreen_password_match":"Password does not match",
+
   "changePasswordScreen_success_message":"Password updated successfully.",
 
   "myProfileScreen_personal_info_title":"Personal Info",
@@ -102,3 +119,4 @@
   "myProfileScreen_fax_number_invalidError":"Please enter valid fax number"
 
 }
+
