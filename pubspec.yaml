@@ -26,6 +26,8 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_dotenv: ^5.2.1
   dropdown_search: ^5.0.6
+  collection: ^1.18.0
+  sticky_headers: ^0.3.0
   # endregion
 
   # region Firebase packages

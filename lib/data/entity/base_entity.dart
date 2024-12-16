@@ -5,7 +5,7 @@ BaseEntity baseEntityFromJson(String str) => BaseEntity.fromJson(json.decode(str
 class BaseEntity {
   final String message;
   final bool isSuccess;
-  final String? error;
+  final int? error;
   final Map<String, dynamic>? additional;
 
   BaseEntity({
@@ -17,7 +17,7 @@ class BaseEntity {
 
   factory BaseEntity.fromJson(Map<String, dynamic> json) => BaseEntity(
         message: json["message"] ?? "",
-        error: json["error"] != null ? json["error"].toString() : "",
+        error: json["error"] ?? 0,
         isSuccess: json["error"] == 0,
         additional: json,
       );

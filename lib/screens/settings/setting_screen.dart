@@ -3,6 +3,9 @@ import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/firebase/analytics.dart';
 import 'package:compass_software/screens/announcements/announcements_screen.dart';
 import 'package:compass_software/screens/change_password/change_password_screen.dart';
+import 'package:compass_software/screens/favourite_hospital/favourite_hospital_screen.dart';
+import 'package:compass_software/screens/favourite_procedure/favourite_procedure_screen.dart';
+import 'package:compass_software/screens/favourite_surgeon/favourite_surgeon_screen.dart';
 import 'package:compass_software/screens/my_preference/my_preference_screen.dart';
 import 'package:compass_software/screens/my_profile/my_profile_screen.dart';
 import 'package:compass_software/screens/settings/state/setting_event.dart';
@@ -52,17 +55,23 @@ class SettingScreen extends StatelessWidget {
       SettingMenu(
         title: context.l10n.settingsScreen_favourite_surgeon,
         svgIcon: SvgIcons.surgeon,
-        onTap: (context) {},
+        onTap: (context) {
+          context.navigate(const FavouriteSurgeonScreen());
+        },
       ),
       SettingMenu(
         title: context.l10n.settingsScreen_favourite_hospital,
         svgIcon: SvgIcons.hospital,
-        onTap: (context) {},
+        onTap: (context) {
+          context.navigate(const FavouriteHospitalScreen());
+        },
       ),
       SettingMenu(
         title: context.l10n.settingsScreen_favourite_procedure,
         svgIcon: SvgIcons.procedure,
-        onTap: (context) {},
+        onTap: (context) {
+          context.navigate(const FavouriteProcedureScreen());
+        },
       ),
     ];
     final List<SettingMenu> reportMenus = <SettingMenu>[

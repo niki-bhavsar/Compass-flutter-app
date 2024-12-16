@@ -116,7 +116,20 @@
   "myProfileScreen_contact_info_hint":"Contact Info",
   "myProfileScreen_cell_number_invalidError":"Please enter valid cell number",
   "myProfileScreen_phone_number_invalidError":"Please enter valid phone number",
-  "myProfileScreen_fax_number_invalidError":"Please enter valid fax number"
+  "myProfileScreen_fax_number_invalidError":"Please enter valid fax number",
+
+  "favouriteSurgeonScreen_title":"Favourite Surgeons",
+  "favouriteSurgeonScreen_nickname":"Nick Name",
+  "favouriteSurgeonScreen_search_surgeon":"Search surgeon",
+
+  "favouriteHospitalScreen_title":"Favourite Hospitals",
+  "favouriteHospitalScreen_nickname":"Nick Name",
+  "favouriteHospitalScreen_search_hospital":"Search hospital",
+
+  "favouriteProcedureScreen_title":"Favourite Procedures",
+  "favouriteProcedureScreen_procedure_name":"Procedure Name",
+    "favouriteProcedureScreen_nickname":"Nick Name",
+    "favouriteProcedureScreen_select_procedure":"Select procedure"
 
 }
 

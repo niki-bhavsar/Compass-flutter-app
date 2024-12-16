@@ -29,12 +29,14 @@ class DistributorInfo {
   final String webName;
   final String webDBSuffix;
   final String logoUrl;
+  final bool isRemoved;
 
   DistributorInfo({
     required this.webId,
     required this.webName,
     required this.webDBSuffix,
     required this.logoUrl,
+    this.isRemoved = false,
   });
 
   factory DistributorInfo.fromJson(Map<String, dynamic> json) => DistributorInfo(
