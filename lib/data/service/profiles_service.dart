@@ -1,0 +1,98 @@
+import 'package:compass_software/data/entity/base_entity.dart';
+import 'package:compass_software/data/entity/hospital_contact_entity.dart';
+import 'package:compass_software/data/entity/hospital_detail_entity.dart';
+import 'package:compass_software/data/entity/hospital_notes_entity.dart';
+import 'package:compass_software/data/entity/surgeon_entity.dart';
+import '../entity/hospital_entity.dart';
+import 'base_service.dart';
+import 'model/call_result.dart';
+
+class ProfilesService extends BaseService {
+  Future<CallResult<HospitalEntity>> getHospitalList() {
+    final uri = toApiUri("gethospitallist");
+    return safeGetApiCall<HospitalEntity>(
+      uri: uri,
+      jsonParser: hospitalEntityFromJson,
+    );
+  }
+
+  Future<CallResult<HospitalDetailEntity>> getHospitalDetails(String hospitalId) {
+    final uri = toApiUri("gethospitaldetail");
+    final header = {"id": hospitalId};
+    return safeGetApiCall<HospitalDetailEntity>(
+      uri: uri,
+      jsonParser: hospitalDetailEntityFromJson,
+      headers: header,
+    );
+  }
+
+  Future<CallResult<HospitalNotesEntity>> getHospitalNotes(String hospitalId) {
+    final uri = toApiUri("gethospitalnotes");
+    final header = {"id": hospitalId};
+    return safeGetApiCall<HospitalNotesEntity>(
+      uri: uri,
+      jsonParser: hospitalNotesEntityFromJson,
+      headers: header,
+    );
+  }
+
+  Future<CallResult<HospitalContactEntity>> getHospitalContacts(String hospitalId) {
+    final uri = toApiUri("gethospitalcontact");
+    final header = {"id": hospitalId};
+    return safeGetApiCall<HospitalContactEntity>(
+      uri: uri,
+      jsonParser: hospitalContactEntityFromJson,
+      headers: header,
+    );
+  }
+
+  Future<CallResult<BaseEntity>> addHospitalContacts({
+    required String hospitalId,
+    required String name,
+    required String email,
+  }) async {
+    final uri = toApiUri("addhospitalcontact");
+    final params = {
+      "name": name,
+      "email": email,
+    };
+    final header = {"id": hospitalId};
+    return safePostApiCall(
+      uri: uri,
+      headers: header,
+      params: params,
+      jsonParser: baseEntityFromJson,
+    );
+  }
+
+  Future<CallResult<BaseEntity>> deleteHospitalContacts({
+    required String hospitalId,
+    required String contactId,
+  }) async {
+    final uri = toApiUri("deletehospitalcontact");
+
+    final header = {"hid": hospitalId, "id": contactId};
+    return safeDeleteApiCall(
+      uri: uri,
+      params: {},
+      headers: header,
+      jsonParser: baseEntityFromJson,
+    );
+  }
+
+  Future<CallResult<SurgeonEntity>> getSurgeonList() {
+    final uri = toApiUri("getsurgeonlist");
+    return safeGetApiCall<SurgeonEntity>(
+      uri: uri,
+      jsonParser: surgeonEntityFromJson,
+    );
+  }
+
+  Future<CallResult<SurgeonEntity>> getSurgeonDetails() {
+    final uri = toApiUri("getsurgeondetail");
+    return safeGetApiCall<SurgeonEntity>(
+      uri: uri,
+      jsonParser: surgeonEntityFromJson,
+    );
+  }
+}

@@ -42,8 +42,6 @@ class Procedure {
     this.procedureData,
   });
 
-  factory Procedure.fromRawJson(String str) => Procedure.fromJson(json.decode(str));
-
   factory Procedure.fromJson(Map<String, dynamic> json) => Procedure(
         id: json["id"] == null ? 0 : int.parse(json["id"].toString()),
         name: json["name"],

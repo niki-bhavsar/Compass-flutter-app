@@ -30,6 +30,7 @@ class AuthRepositoryImpl implements AuthRepository {
       if (user != null) {
         sessionPref.setLoggedIn(true);
         sessionPref.setAuthToken(user.authToken);
+        sessionPref.setRepId(user.repId);
       }
 
       // write logic to save access token

@@ -3,13 +3,13 @@ import 'package:compass_software/data/entity/user_profile_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/entity/base_entity.dart';
-import '../../data/repository/profile_repository.dart';
+import '../../data/repository/my_profile_repository.dart';
 import '../../data/service/model/call_result.dart';
 import 'bloc/my_profile_event.dart';
 import 'bloc/my_profile_state.dart';
 
 class MyProfileBloc extends Bloc<MyProfileEvent, MyProfileState> {
-  final ProfileRepository profileRepository;
+  final MyProfileRepository myProfileRepository;
   List<StatesList> statesList = [];
   StatesList? selectedState;
   final formKey = GlobalKey<FormState>();
@@ -23,7 +23,6 @@ class MyProfileBloc extends Bloc<MyProfileEvent, MyProfileState> {
   TextEditingController wwidController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController cityController = TextEditingController();
-  // TextEditingController stateController = TextEditingController();
   TextEditingController zipController = TextEditingController();
   TextEditingController cellNumberController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
@@ -32,7 +31,7 @@ class MyProfileBloc extends Bloc<MyProfileEvent, MyProfileState> {
   TextEditingController contactInfoController = TextEditingController();
 
   MyProfileBloc({
-    required this.profileRepository,
+    required this.myProfileRepository,
   }) : super(MyProfileInitialState()) {
     on<StateListFetchEvent>(_handleStateListFetchEvent);
     on<UserProfileFetchEvent>(_handleUserProfileFetchEvent);
@@ -45,7 +44,7 @@ class MyProfileBloc extends Bloc<MyProfileEvent, MyProfileState> {
   ) async {
     emit(MyProfileLoadingState());
 
-    final result = await profileRepository.getStateList();
+    final result = await myProfileRepository.getStateList();
     if (result is Failure<StateEntity>) {
       emit(MyProfileErrorState(
         error: result.cause,
@@ -65,7 +64,7 @@ class MyProfileBloc extends Bloc<MyProfileEvent, MyProfileState> {
   ) async {
     emit(MyProfileLoadingState());
 
-    final result = await profileRepository.getRepUserProfile();
+    final result = await myProfileRepository.getRepUserProfile();
     if (result is Failure<UserProfileEntity>) {
       emit(MyProfileErrorState(
         error: result.cause,
@@ -108,7 +107,7 @@ class MyProfileBloc extends Bloc<MyProfileEvent, MyProfileState> {
     if (isValidForm) {
       emit(MyProfileLoadingState());
 
-      final result = await profileRepository.saveRepUserProfile(
+      final result = await myProfileRepository.saveRepUserProfile(
         address1: addressController.text,
         address2: addressController.text,
         city: cityController.text,

@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/service/model/call_result.dart';
 import '../../data/entity/change_password_entity.dart';
-import '../../data/repository/profile_repository.dart';
+import '../../data/repository/my_profile_repository.dart';
 import 'bloc/change_password_event.dart';
 import 'bloc/change_password_state.dart';
 
 class ChangePasswordBloc extends Bloc<ChangePasswordEvent, ChangePasswordState> {
-  final ProfileRepository profileRepository;
+  final MyProfileRepository myProfileRepository;
 
   TextEditingController currentPasswordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
@@ -17,7 +17,7 @@ class ChangePasswordBloc extends Bloc<ChangePasswordEvent, ChangePasswordState> 
 
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
-  ChangePasswordBloc({required this.profileRepository}) : super(ChangePasswordInitialState()) {
+  ChangePasswordBloc({required this.myProfileRepository}) : super(ChangePasswordInitialState()) {
     on<ChangePasswordUpdateEvent>(_handleChangePasswordEvent);
   }
 
@@ -29,7 +29,7 @@ class ChangePasswordBloc extends Bloc<ChangePasswordEvent, ChangePasswordState> 
     if (isValidForm) {
       emit(ChangePasswordLoadingState());
 
-      final result = await profileRepository.changePassword(
+      final result = await myProfileRepository.changePassword(
           currentPasswordController.text, newPasswordController.text);
       if (result is Success<ChangePasswordEntity>) {
         currentPasswordController.clear();

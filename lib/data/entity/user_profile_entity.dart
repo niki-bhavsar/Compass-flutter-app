@@ -58,8 +58,6 @@ class UserProfileInfo {
     required this.zipCode,
   });
 
-  factory UserProfileInfo.fromRawJson(String str) => UserProfileInfo.fromJson(json.decode(str));
-
   factory UserProfileInfo.fromJson(Map<String, dynamic> json) => UserProfileInfo(
         accountNumber: json["Account Number"],
         addressLine1: json["Address Line1"],

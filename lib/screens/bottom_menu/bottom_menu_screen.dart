@@ -3,6 +3,8 @@ import 'package:compass_software/screens/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
+import '../profiles/profiles_screen/profiles_screen.dart';
+
 class BottomMenuScreen extends StatefulWidget {
   const BottomMenuScreen({super.key});
 
@@ -54,7 +56,7 @@ class _BottomMenuScreenState extends State<BottomMenuScreen> {
   Widget _selectedPage() {
     switch (_selectedTab) {
       case 1:
-        return const Placeholder();
+        return const ProfilesScreen();
       case 2:
         return const Placeholder();
       case 3:

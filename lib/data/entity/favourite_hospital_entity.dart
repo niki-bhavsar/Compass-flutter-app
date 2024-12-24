@@ -43,8 +43,6 @@ class HospitalList {
     this.nickName,
   });
 
-  factory HospitalList.fromRawJson(String str) => HospitalList.fromJson(json.decode(str));
-
   factory HospitalList.fromJson(Map<String, dynamic> json) => HospitalList(
         id: json["id"],
         hospitalId: json["hospital_id"],

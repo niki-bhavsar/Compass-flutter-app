@@ -35,10 +35,6 @@ class FavouriteSurgeonStatView extends StatelessWidget {
     return StateView(
       title: context.l10n.favouriteSurgeonScreen_title,
       message: context.l10n.no_data_message,
-      action: context.l10n.action_try_again,
-      onAction: () {
-        context.read<FavouriteSurgeonBloc>().add(FavouriteSurgeonFetchEvent());
-      },
     );
   }
 }

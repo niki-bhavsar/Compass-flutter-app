@@ -26,7 +26,6 @@ class _FavouriteProcedureCardState extends State<FavouriteProcedureCard> {
 
     final bloc = context.read<FavouriteProcedureBloc>();
     return Card(
-      color: Theme.of(context).colorScheme.onPrimary,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

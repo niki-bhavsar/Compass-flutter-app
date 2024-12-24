@@ -4,10 +4,10 @@ import '../entity/base_entity.dart';
 import '../entity/change_password_entity.dart';
 import '../entity/state_entity.dart';
 import '../service/model/call_result.dart';
-import '../service/profile_service.dart';
+import '../service/my_profile_service.dart';
 import '../shared_pref/session_pref.dart';
 
-abstract interface class ProfileRepository {
+abstract interface class MyProfileRepository {
   Future<CallResult<ChangePasswordEntity>> changePassword(
     String currentPassword,
     String newPassword,
@@ -30,13 +30,13 @@ abstract interface class ProfileRepository {
   });
 }
 
-base class ProfileRepositoryImpl implements ProfileRepository {
+base class MyProfileRepositoryImpl implements MyProfileRepository {
   final SessionPref sessionPref;
-  final ProfileService profileService;
+  final MyProfileService myProfileService;
 
-  ProfileRepositoryImpl({
+  MyProfileRepositoryImpl({
     required this.sessionPref,
-    required this.profileService,
+    required this.myProfileService,
   });
 
   @override
@@ -44,7 +44,7 @@ base class ProfileRepositoryImpl implements ProfileRepository {
     String currentPassword,
     String newPassword,
   ) {
-    return profileService.changePassword(
+    return myProfileService.changePassword(
       currentPassword,
       newPassword,
     );
@@ -52,12 +52,12 @@ base class ProfileRepositoryImpl implements ProfileRepository {
 
   @override
   Future<CallResult<StateEntity>> getStateList() {
-    return profileService.getStateList();
+    return myProfileService.getStateList();
   }
 
   @override
   Future<CallResult<UserProfileEntity>> getRepUserProfile() {
-    return profileService.getRepUserProfile();
+    return myProfileService.getRepUserProfile();
   }
 
   @override
@@ -73,7 +73,7 @@ base class ProfileRepositoryImpl implements ProfileRepository {
     required String accountNumber,
     required String contactInfo,
   }) async {
-    return profileService.saveRepUserProfile(
+    return myProfileService.saveRepUserProfile(
         address1: address1,
         address2: address2,
         city: city,

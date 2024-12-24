@@ -35,10 +35,6 @@ class FavouriteHospitalStateView extends StatelessWidget {
     return StateView(
       title: context.l10n.favouriteHospitalScreen_title,
       message: context.l10n.no_data_message,
-      action: context.l10n.action_try_again,
-      onAction: () {
-        context.read<FavouriteHospitalBloc>().add(FavouriteHospitalFetchEvent());
-      },
     );
   }
 }

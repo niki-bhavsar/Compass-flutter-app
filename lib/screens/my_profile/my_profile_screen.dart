@@ -6,7 +6,7 @@ import 'package:compass_software/screens/my_profile/widget/my_profile_state_view
 import 'package:compass_software/screens/my_profile/widget/my_profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/repository/profile_repository.dart';
+import '../../data/repository/my_profile_repository.dart';
 import '../login/login_screen.dart';
 import 'bloc/my_profile_event.dart';
 import 'my_profile_bloc.dart';
@@ -18,7 +18,7 @@ class MyProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => MyProfileBloc(
-        profileRepository: context.read<ProfileRepository>(),
+        myProfileRepository: context.read<MyProfileRepository>(),
       )..add(StateListFetchEvent()),
       child: _MyProfileScaffold(),
     );

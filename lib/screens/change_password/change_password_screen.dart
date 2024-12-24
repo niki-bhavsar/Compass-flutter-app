@@ -4,7 +4,7 @@ import 'package:compass_software/screens/change_password/widget/change_password_
 import 'package:compass_software/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/repository/profile_repository.dart';
+import '../../data/repository/my_profile_repository.dart';
 import '../../widget/progress.dart';
 import 'bloc/change_password_state.dart';
 import 'change_password_bloc.dart';
@@ -22,7 +22,7 @@ class ChangePasswordScreen extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (_) => ChangePasswordBloc(
-          profileRepository: context.read<ProfileRepository>(),
+          myProfileRepository: context.read<MyProfileRepository>(),
         ),
         child: BlocConsumer<ChangePasswordBloc, ChangePasswordState>(
           listener: (context, state) {

@@ -50,8 +50,6 @@ class LoginUserInfo {
     required this.webDbSuffix,
   });
 
-  factory LoginUserInfo.fromRawJson(String str) => LoginUserInfo.fromJson(json.decode(str));
-
   factory LoginUserInfo.fromJson(Map<String, dynamic> json) => LoginUserInfo(
         repId: json["rep_id"],
         username: json["username"],

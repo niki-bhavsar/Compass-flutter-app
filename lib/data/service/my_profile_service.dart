@@ -1,12 +1,11 @@
 import 'package:compass_software/data/entity/state_entity.dart';
-
 import '../entity/base_entity.dart';
 import '../entity/change_password_entity.dart';
 import '../entity/user_profile_entity.dart';
 import 'base_service.dart';
 import 'model/call_result.dart';
 
-class ProfileService extends BaseService {
+class MyProfileService extends BaseService {
   Future<CallResult<ChangePasswordEntity>> changePassword(
     String currentPassword,
     String newPassword,

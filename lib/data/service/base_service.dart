@@ -135,10 +135,16 @@ class BaseService {
     required Uri uri,
     required Map<String, dynamic> params,
     required T Function(String arg) jsonParser,
+    Map<String, String>? headers,
     String? contentType = 'application/x-www-form-urlencoded',
   }) async {
     try {
       Logger.root.info("Request Params: $params");
+      if (headers != null) {
+        headers.forEach((key, value) {
+          dio?.options.headers[key] = value;
+        });
+      }
       Response? response = await dio?.delete(
         uri.toString(),
         data: params,

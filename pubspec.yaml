@@ -28,6 +28,7 @@ dependencies:
   dropdown_search: ^5.0.6
   collection: ^1.18.0
   sticky_headers: ^0.3.0
+  flutter_html: ^3.0.0-beta.2
   # endregion
 
   # region Firebase packages

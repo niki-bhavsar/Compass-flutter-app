@@ -7,6 +7,10 @@ abstract interface class SessionPref {
 
   String getAuthToken();
 
+  setRepId(String repId);
+
+  String getRepId();
+
   setDistributorInfo(DistributorInfo info);
 
   DistributorInfo? getDistributorInfo();

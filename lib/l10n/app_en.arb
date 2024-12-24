@@ -6,6 +6,8 @@
   "action_yes" : "Yes",
   "action_no" : "No",
   "action_update" : "Update",
+  "action_edit" : "Edit",
+  "action_delete" : "Delete",
   "action_try_again":"Try Again",
   "stateView_message":"Something went wrong!",
   "no_data_message":"No data Found",
@@ -42,9 +44,6 @@
   "techniqueLibraryScreen_anatomy_title":"Anatomy",
   "techniqueLibraryScreen_system_title":"System",
 
-  
-
-
 
   "settingsScreen_title" : "Settings",
 
@@ -53,10 +52,10 @@
   "settingsScreen_account_my_profile" : "My Profile",
   "settingsScreen_account_change_password" : "Change Password",
 
-  "settingsScreen_favourite_title" : "Favourite",
-  "settingsScreen_favourite_surgeon" : "Favourite Surgeons",
-  "settingsScreen_favourite_hospital" : "Favourite Hospitals",
-  "settingsScreen_favourite_procedure" : "Favourite Procedures",
+  "settingsScreen_favourite_title" : "Favorite",
+  "settingsScreen_favourite_surgeon" : "Favorite Surgeons",
+  "settingsScreen_favourite_hospital" : "Favorite Hospitals",
+  "settingsScreen_favourite_procedure" : "Favorite Procedures",
 
   "settingsScreen_reports_title" : "Reports",
   "settingsScreen_reports_backorder_report" : "BackOrder Report",
@@ -118,18 +117,53 @@
   "myProfileScreen_phone_number_invalidError":"Please enter valid phone number",
   "myProfileScreen_fax_number_invalidError":"Please enter valid fax number",
 
-  "favouriteSurgeonScreen_title":"Favourite Surgeons",
+  "favouriteSurgeonScreen_title":"Favorite Surgeons",
   "favouriteSurgeonScreen_nickname":"Nick Name",
   "favouriteSurgeonScreen_search_surgeon":"Search surgeon",
 
-  "favouriteHospitalScreen_title":"Favourite Hospitals",
+  "favouriteHospitalScreen_title":"Favorite Hospitals",
   "favouriteHospitalScreen_nickname":"Nick Name",
   "favouriteHospitalScreen_search_hospital":"Search hospital",
 
-  "favouriteProcedureScreen_title":"Favourite Procedures",
+  "favouriteProcedureScreen_title":"Favorite Procedures",
   "favouriteProcedureScreen_procedure_name":"Procedure Name",
-    "favouriteProcedureScreen_nickname":"Nick Name",
-    "favouriteProcedureScreen_select_procedure":"Select procedure"
+  "favouriteProcedureScreen_nickname":"Nick Name",
+  "favouriteProcedureScreen_select_procedure":"Select procedure",
+
+  "profilesScreen_title":"Profiles",
+  "profilesScreen_hospital_title":"Hospitals",
+  "profilesScreen_surgeons_title":"Surgeons",
+  "profilesScreen_hospitals_no_data_message":"No hospitals Found",
+  "profilesScreen_surgeons_no_data_message":"No surgeons Found",
+
+  "hospitalProfilesScreen_inventory":"Inventory",
+  "hospitalProfilesScreen_sales":"Sales",
+  "hospitalProfilesScreen_hospital_contact":"Hospital Contact",
+  "hospitalProfilesScreen_general_tab":"General",
+  "hospitalProfilesScreen_notes_tab":"Notes",
+  "hospitalProfilesScreen_contact_info_tab":"Contact Info",
+  "hospitalProfilesScreen_associated_surgeons_tab":"Associated Surgeons",
+  "hospitalProfilesScreen_general_tab_contacts":"Contacts",
+  "hospitalProfilesScreen_general_tab_role":"Role: ",
+  "hospitalProfilesScreen_general_tab_type":"Type: ",
+  "hospitalProfilesScreen_general_tab_phone":"Phone: ",
+  "hospitalProfilesScreen_general_tab_cell":"Cell: ",
+  "hospitalProfilesScreen_general_tab_notes":"Notes:",
+  "hospitalProfilesScreen_no_data_message":"No hospitals details Found",
+
+  "hospitalContactsScreen_title":"Hospital Contacts",
+  "hospitalContactsScreen_name_hint":"Name",
+  "hospitalContactsScreen_email_hint":"Email",
+  "hospitalContactsScreen_add_contact_button":"Add Contact",
+  "hospitalContactsScreen_no_data_message":"No hospitals contacts Found, please add new",
+  "hospitalContactsScreen_name_validation":"Please enter name",
+  "hospitalContactsScreen_email_validation":"Please enter email",
+  "hospitalContactsScreen_errorInvalidEmail_message" : "Please enter valid email",
+  "hospitalContactsScreen_deleteContactsDialog_message":"Are you sure to delete this contact?",
+
+  "hospitalNotesScreen_title": "Notes"
+
+
 
 }
 

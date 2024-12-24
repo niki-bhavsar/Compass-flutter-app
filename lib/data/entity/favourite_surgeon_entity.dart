@@ -49,8 +49,6 @@ class SurgeonList {
 
   String surgeonName() => "$firstName $lastName".trim();
 
-  factory SurgeonList.fromRawJson(String str) => SurgeonList.fromJson(json.decode(str));
-
   factory SurgeonList.fromJson(Map<String, dynamic> json) => SurgeonList(
         id: json["id"],
         surgeonId: json["surgeon_id"],

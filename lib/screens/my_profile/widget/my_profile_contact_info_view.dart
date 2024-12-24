@@ -33,7 +33,6 @@ class MyProfileContactInfoView extends StatelessWidget {
 
     final bloc = context.read<MyProfileBloc>();
     return Card(
-      color: Theme.of(context).colorScheme.onPrimary,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

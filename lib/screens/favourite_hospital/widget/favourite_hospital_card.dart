@@ -17,7 +17,6 @@ class FavouriteHospitalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<FavouriteHospitalBloc>();
     return Card(
-      color: Theme.of(context).colorScheme.onPrimary,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

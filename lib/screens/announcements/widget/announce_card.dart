@@ -10,7 +10,6 @@ class Announcecard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Theme.of(context).colorScheme.onPrimary,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: ListTile(
         visualDensity: const VisualDensity(vertical: 3),

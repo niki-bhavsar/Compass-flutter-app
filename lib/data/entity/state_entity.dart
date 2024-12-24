@@ -29,8 +29,6 @@ class StatesList {
     required this.name,
   });
 
-  factory StatesList.fromRawJson(String str) => StatesList.fromJson(json.decode(str));
-
   factory StatesList.fromJson(Map<String, dynamic> json) => StatesList(
         name: json["name"],
       );
