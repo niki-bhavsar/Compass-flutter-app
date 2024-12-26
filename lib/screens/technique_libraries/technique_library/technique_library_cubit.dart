@@ -1,22 +1,20 @@
-// class TechniqueLibraryCubit {}
-
 import 'package:compass_software/data/entity/technique_library_entity.dart';
-import 'package:compass_software/data/repository/settings_reposotory.dart';
+import 'package:compass_software/data/repository/settings_repository.dart';
 import 'package:compass_software/data/service/model/call_result.dart';
-import 'package:compass_software/screens/technique_library/state/technique_library_state.dart';
+import 'package:compass_software/screens/technique_libraries/technique_library/state/technique_library_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TechniqueLibraryCubit extends Cubit<TechniqueLibraryState> {
-  final SettingsReposotory settingsReposotory;
+  final SettingsRepository settingsRepository;
   late List<TechniqueLibraryInfo> techlibraries = [];
-  TechniqueLibraryCubit({required this.settingsReposotory})
+  TechniqueLibraryCubit({required this.settingsRepository})
       : super(TechniqueLibraryInitialState()) {
     fetchTechniqueLibraryData();
   }
 
   void fetchTechniqueLibraryData() async {
     emit(TechniqueLibraryLoadingState());
-    CallResult<TechniqueLibraryEntity> response = await settingsReposotory.getTechniqueLibraries();
+    CallResult<TechniqueLibraryEntity> response = await settingsRepository.getTechniqueLibraries();
 
     if (response is Failure<TechniqueLibraryEntity>) {
       emit(TechniqueLibraryErrorState(

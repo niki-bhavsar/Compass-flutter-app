@@ -4,7 +4,8 @@ import 'package:compass_software/data/repository/favourite_repository.dart';
 import 'package:compass_software/data/repository/profiles_repository.dart';
 import 'package:compass_software/data/service/auth_service.dart';
 import 'package:compass_software/data/service/favourite_service.dart';
-import 'package:compass_software/data/repository/settings_reposotory.dart';
+
+import 'package:compass_software/data/repository/settings_repository.dart';
 import 'package:compass_software/data/service/profiles_service.dart';
 import 'package:compass_software/data/service/settings_service.dart';
 import 'package:compass_software/data/shared_pref/session_pref.dart';
@@ -47,8 +48,8 @@ class AppBlocProvider extends StatelessWidget {
             sessionPref: context.read<SessionPref>(),
           ),
         ),
-        RepositoryProvider<SettingsReposotory>(
-          create: (context) => SettingsReposotoryImp(
+        RepositoryProvider<SettingsRepository>(
+          create: (context) => SettingsRepositoryImp(
             settingService: SettingsService(),
             sessionPref: context.read<SessionPref>(),
           ),

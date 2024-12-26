@@ -1,16 +1,17 @@
 import 'package:compass_software/data/repository/auth_repository.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/firebase/analytics.dart';
-import 'package:compass_software/screens/announcements/announcements_screen.dart';
+import 'package:compass_software/screens/annnouncement/announcements/announcements_screen.dart';
 import 'package:compass_software/screens/change_password/change_password_screen.dart';
 import 'package:compass_software/screens/favourite_hospital/favourite_hospital_screen.dart';
 import 'package:compass_software/screens/favourite_procedure/favourite_procedure_screen.dart';
 import 'package:compass_software/screens/favourite_surgeon/favourite_surgeon_screen.dart';
+import 'package:compass_software/screens/manage_templates/template_list/template_list_screen.dart';
 import 'package:compass_software/screens/my_preference/my_preference_screen.dart';
 import 'package:compass_software/screens/my_profile/my_profile_screen.dart';
 import 'package:compass_software/screens/settings/state/setting_event.dart';
 import 'package:compass_software/screens/settings/widget/setting_card.dart';
-import 'package:compass_software/screens/technique_library/technique_library_screen.dart';
+import 'package:compass_software/screens/technique_libraries/technique_library/technique_library_screen.dart';
 import 'package:compass_software/widget/app_dialog.dart';
 import 'package:compass_software/widget/progress.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,9 @@ class SettingScreen extends StatelessWidget {
       SettingMenu(
         title: context.l10n.settingsScreen_general_manage_templates,
         svgIcon: SvgIcons.manageTemplates,
-        onTap: (context) {},
+        onTap: (context) {
+          context.navigate(const TemplateListScreen());
+        },
       ),
       SettingMenu(
         title: context.l10n.settingsScreen_general_technique_library,

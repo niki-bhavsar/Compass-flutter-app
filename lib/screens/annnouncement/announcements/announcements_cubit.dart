@@ -1,18 +1,18 @@
 import 'package:compass_software/data/entity/announcement_entity.dart';
-import 'package:compass_software/data/repository/settings_reposotory.dart';
+import 'package:compass_software/data/repository/settings_repository.dart';
 import 'package:compass_software/data/service/model/call_result.dart';
-import 'package:compass_software/screens/announcements/state/announcements_state.dart';
+import 'package:compass_software/screens/annnouncement/announcements/state/announcements_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AnnouncementsCubit extends Cubit<AnnouncementsState> {
-  final SettingsReposotory settingsReposotory;
-  AnnouncementsCubit({required this.settingsReposotory}) : super(AnnouncementInitialState()) {
+  final SettingsRepository settingsRepository;
+  AnnouncementsCubit({required this.settingsRepository}) : super(AnnouncementInitialState()) {
     fetchAnnouncementData();
   }
 
   void fetchAnnouncementData() async {
     emit(AnnouncementLoadingState());
-    CallResult<AnnouncementsEntity> response = await settingsReposotory.getAnnouncements();
+    CallResult<AnnouncementsEntity> response = await settingsRepository.getAnnouncements();
 
     if (response is Failure<AnnouncementsEntity>) {
       emit(AnnouncementsErrorState(

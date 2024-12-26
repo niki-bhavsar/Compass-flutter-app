@@ -1,9 +1,9 @@
 import 'package:compass_software/data/entity/announcement_entity.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
-import 'package:compass_software/screens/announcements/announcements_cubit.dart';
-import 'package:compass_software/screens/announcements/state/announcements_state.dart';
-import 'package:compass_software/screens/announcements/widget/announce_card.dart';
-import 'package:compass_software/screens/announcements/widget/announce_stateview.dart';
+import 'package:compass_software/screens/annnouncement/announcements/announcements_cubit.dart';
+import 'package:compass_software/screens/annnouncement/announcements/state/announcements_state.dart';
+import 'package:compass_software/screens/annnouncement/announcements/widget/announce_card.dart';
+import 'package:compass_software/screens/annnouncement/announcements/widget/announce_stateview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,15 +13,18 @@ class AnnouncementsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => AnnouncementsCubit(
-              settingsReposotory: context.read(),
-            ),
-        child: const AnnouncementsPage());
+      create: (_) => AnnouncementsCubit(
+        settingsRepository: context.read(),
+      ),
+      child: const AnnouncementsPage(),
+    );
   }
 }
 
 class AnnouncementsPage extends StatelessWidget {
-  const AnnouncementsPage({super.key});
+  const AnnouncementsPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -87,9 +90,11 @@ class _AnnouncementList extends StatelessWidget {
                   ),
                 ),
                 // Display announcements for this year
-                ...yearAnnouncements.map((announcement) {
-                  return Announcecard(announcement: announcement);
-                }),
+                ...yearAnnouncements.map(
+                  (announcement) {
+                    return Announcecard(announcement: announcement);
+                  },
+                ),
               ],
             );
           },

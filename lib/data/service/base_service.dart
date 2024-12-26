@@ -167,6 +167,7 @@ class BaseService {
     Map<String, String>? headers,
   }) async {
     try {
+      dio?.options.headers = null;
       if (headers != null) {
         headers.forEach((key, value) {
           dio?.options.headers[key] = value;

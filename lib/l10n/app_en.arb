@@ -11,6 +11,7 @@
   "action_try_again":"Try Again",
   "stateView_message":"Something went wrong!",
   "no_data_message":"No data Found",
+  "back_button_title":"Back",
 
   "distributorCodeScreen_codeInput_title" : "Enter the Distributor Code",
   "distributorCodeScreen_codeInput_hint" : "Code",
@@ -31,11 +32,11 @@
   "bottomMenuScreen_tabSales_title" : "Sales",
   "bottomMenuScreen_tabSettings_title" : "Settings",
 
-  "stateView_message":"Something went wrong!",
   "tryAgain_button_title":"Try Again",
 
   "announcementScreen_title":"Announcements",
   "announcementScreen_noData_message":"No Announcements Found",
+  "announcementScreen_detail_title":"Announcement Details",
 
   "techniqueLibraryScreen_title":"Technique Library",
   "techniqueLibraryScreen_noData_message":"No Technique Library Found",
@@ -44,6 +45,30 @@
   "techniqueLibraryScreen_anatomy_title":"Anatomy",
   "techniqueLibraryScreen_system_title":"System",
 
+  "techniqueLibraryDetailScreen_failed_document_message":"Failed to load the document. Please try again later",
+  "techniqueLibraryDetailScreen_failed_alert_title":"Failed",
+  
+  "templateListScreen_title":"Templates List",
+
+  "createNewTemplate_title": "Add Template",
+  "editTemplate_title": "Edit Template",
+  "createEditTemplate_nameInput_hint" : "Template Name",
+  "createEditTemplate_nameInput_emptyError" : "Please enter template name",
+  "createEditTemplate_Implants_segment_title" : "Implants",
+  "createEditTemplate_Instruments_segment_title" : "Instruments",
+
+  "createEditTemplate_empty_implant_instruments_title":"Unknown Manufacturer",
+  "createEditTemplate_empty_implant_instruments_no_data":"No data found",
+
+  "createEditTemplate_implant_noData_message":"No Data  Found",
+
+  "template_filter_categories_title":"Filters",
+  "template_kit_detail_title": "Kit Details",
+  "template_kit_Unknown_Value":"Unknown Value",
+  "template_category_dropdown_title":"Choose an Item",
+  "template_category_dropdown_Selected_title":"Selected",
+  "template_category_dropdown_All_title":"All",
+  
 
   "settingsScreen_title" : "Settings",
 

@@ -1,5 +1,6 @@
 import 'package:compass_software/data/entity/technique_library_entity.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
+import 'package:compass_software/screens/technique_libraries/technique_library_detail/technique_library_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class TechniqueCard extends StatelessWidget {
@@ -79,7 +80,11 @@ class TechniqueCard extends StatelessWidget {
           ),
         ),
         onTap: () {
-          // context.navigate (AppRoute.profile, contact.id.toString());
+          context.navigate(
+            TechniqueLibraryDetailScreen(
+              techniqueLibraryDetail: techniqueLibrary,
+            ),
+          );
         },
       ),
     );
