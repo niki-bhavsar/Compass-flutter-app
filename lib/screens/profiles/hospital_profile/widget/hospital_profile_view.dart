@@ -165,7 +165,7 @@ class HospitalProfileView extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  context.l10n.hospitalProfilesScreen_notes_tab,
+                  context.l10n.hospitalProfilesScreen_notes,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                         color: Theme.of(context).colorScheme.onPrimary,

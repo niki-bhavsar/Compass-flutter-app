@@ -28,7 +28,7 @@ class _HospitalProfilesTabState extends State<HospitalProfilesTab>
       ),
       Tab(
         child: Text(
-          context.l10n.hospitalProfilesScreen_notes_tab,
+          context.l10n.hospitalProfilesScreen_notes,
         ),
       ),
       Tab(

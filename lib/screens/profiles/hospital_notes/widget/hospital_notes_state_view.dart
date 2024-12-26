@@ -35,7 +35,7 @@ class HospitalNotesStateView extends StatelessWidget {
     }
 
     return StateView(
-      title: context.l10n.hospitalProfilesScreen_notes_tab,
+      title: context.l10n.hospitalProfilesScreen_notes,
       message: context.l10n.hospitalContactsScreen_no_data_message,
     );
   }

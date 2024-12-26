@@ -4,6 +4,8 @@ import 'package:compass_software/data/entity/surgeon_entity.dart';
 import '../entity/hospital_contact_entity.dart';
 import '../entity/hospital_detail_entity.dart';
 import '../entity/hospital_entity.dart';
+import '../entity/surgeon_detail_entity.dart';
+import '../entity/surgeon_notes_entity.dart';
 import '../service/model/call_result.dart';
 import '../service/profiles_service.dart';
 import '../shared_pref/session_pref.dart';
@@ -25,6 +27,8 @@ abstract interface class ProfilesRepository {
   });
 
   Future<CallResult<SurgeonEntity>> getSurgeonList();
+  Future<CallResult<SurgeonDetailEntity>> getSurgeonDetails(String surgeonID);
+  Future<CallResult<SurgeonNotesEntity>> getSurgeonNotes(String surgeonID);
 }
 
 base class ProfilesRepositoryImpl implements ProfilesRepository {
@@ -83,5 +87,15 @@ base class ProfilesRepositoryImpl implements ProfilesRepository {
   @override
   Future<CallResult<SurgeonEntity>> getSurgeonList() {
     return profilesService.getSurgeonList();
+  }
+
+  @override
+  Future<CallResult<SurgeonDetailEntity>> getSurgeonDetails(String surgeonId) {
+    return profilesService.getSurgeonDetails(surgeonId);
+  }
+
+  @override
+  Future<CallResult<SurgeonNotesEntity>> getSurgeonNotes(String surgeonID) {
+    return profilesService.getSurgeonNotes(surgeonID);
   }
 }

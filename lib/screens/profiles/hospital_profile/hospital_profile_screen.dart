@@ -37,9 +37,6 @@ class _HospitalProfileScaffold extends StatelessWidget {
         listener: (context, state) {
           if (state is HospitalProfileErrorState && state.isAuthError == true) {
             context.navigateAndReplace(const LoginScreen());
-          } else if (state is HospitalProfileResultState) {
-            final bloc = context.read<HospitalProfileBloc>();
-            bloc.add(HospitalNotesFetchEvent(bloc.hospitalDetail?.id ?? ""));
           }
         },
         builder: (context, state) {

@@ -2,8 +2,10 @@ import 'package:compass_software/data/entity/base_entity.dart';
 import 'package:compass_software/data/entity/hospital_contact_entity.dart';
 import 'package:compass_software/data/entity/hospital_detail_entity.dart';
 import 'package:compass_software/data/entity/hospital_notes_entity.dart';
+import 'package:compass_software/data/entity/surgeon_detail_entity.dart';
 import 'package:compass_software/data/entity/surgeon_entity.dart';
 import '../entity/hospital_entity.dart';
+import '../entity/surgeon_notes_entity.dart';
 import 'base_service.dart';
 import 'model/call_result.dart';
 
@@ -88,11 +90,23 @@ class ProfilesService extends BaseService {
     );
   }
 
-  Future<CallResult<SurgeonEntity>> getSurgeonDetails() {
+  Future<CallResult<SurgeonDetailEntity>> getSurgeonDetails(String surgeonId) {
     final uri = toApiUri("getsurgeondetail");
-    return safeGetApiCall<SurgeonEntity>(
+    final header = {"id": surgeonId};
+    return safeGetApiCall<SurgeonDetailEntity>(
       uri: uri,
-      jsonParser: surgeonEntityFromJson,
+      jsonParser: surgeonDetailEntityFromJson,
+      headers: header,
+    );
+  }
+
+  Future<CallResult<SurgeonNotesEntity>> getSurgeonNotes(String surgeonId) {
+    final uri = toApiUri("getsurgeonnotes");
+    final header = {"id": surgeonId};
+    return safeGetApiCall<SurgeonNotesEntity>(
+      uri: uri,
+      jsonParser: surgeonNotesEntityFromJson,
+      headers: header,
     );
   }
 }

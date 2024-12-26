@@ -140,7 +140,7 @@
   "hospitalProfilesScreen_sales":"Sales",
   "hospitalProfilesScreen_hospital_contact":"Hospital Contact",
   "hospitalProfilesScreen_general_tab":"General",
-  "hospitalProfilesScreen_notes_tab":"Notes",
+  "hospitalProfilesScreen_notes":"Notes",
   "hospitalProfilesScreen_contact_info_tab":"Contact Info",
   "hospitalProfilesScreen_associated_surgeons_tab":"Associated Surgeons",
   "hospitalProfilesScreen_general_tab_contacts":"Contacts",
@@ -149,7 +149,7 @@
   "hospitalProfilesScreen_general_tab_phone":"Phone: ",
   "hospitalProfilesScreen_general_tab_cell":"Cell: ",
   "hospitalProfilesScreen_general_tab_notes":"Notes:",
-  "hospitalProfilesScreen_no_data_message":"No hospitals details Found",
+  "hospitalProfilesScreen_no_data_message":"No hospitals details found",
 
   "hospitalContactsScreen_title":"Hospital Contacts",
   "hospitalContactsScreen_name_hint":"Name",
@@ -161,7 +161,18 @@
   "hospitalContactsScreen_errorInvalidEmail_message" : "Please enter valid email",
   "hospitalContactsScreen_deleteContactsDialog_message":"Are you sure to delete this contact?",
 
-  "hospitalNotesScreen_title": "Notes"
+  "hospitalNotesScreen_title": "Notes",
+
+  "surgeonProfilesScreen_no_data_message":"No surgeon details found",
+  "surgeonProfilesScreen_sales":"Sales",
+  "surgeonProfilesScreen_notes":"Notes",
+  "surgeonProfilesScreen_training_tab":"Training",
+  "surgeonProfilesScreen_events_tab":"Events",
+  "surgeonProfilesScreen_training_underGraduate":"UnderGraduate",
+  "surgeonProfilesScreen_training_medical_school":"Medical School",
+  "surgeonProfilesScreen_training_residency":"Residency",
+  "surgeonProfilesScreen_training_fellowship":"Fellowship",
+  "surgeonProfilesScreen_training_notes":"Notes"
 
 
 

@@ -5,8 +5,3 @@ class HospitalsProfileFetchEvent extends HospitalProfileEvent {
 
   HospitalsProfileFetchEvent(this.hospitalId);
 }
-
-class HospitalNotesFetchEvent extends HospitalProfileEvent {
-  final String hospitalId;
-  HospitalNotesFetchEvent(this.hospitalId);
-}

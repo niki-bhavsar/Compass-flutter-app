@@ -1,4 +1,6 @@
 import 'package:compass_software/data/entity/surgeon_entity.dart';
+import 'package:compass_software/extension/build_context_extension.dart';
+import 'package:compass_software/screens/profiles/surgeon_profile/surgeon_profile_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../widget/svg_icons.dart';
 
@@ -43,7 +45,9 @@ class SurgeonCard extends StatelessWidget {
           ),
         ),
         trailing: const Icon(Icons.navigate_next_rounded),
-        onTap: () {},
+        onTap: () {
+          context.navigate(SurgeonProfileScreen(surgeon: surgeon));
+        },
       ),
     );
   }
