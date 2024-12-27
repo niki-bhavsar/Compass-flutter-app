@@ -1,9 +1,8 @@
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/screens/profiles/hospital_contacts/hospital_contacts_screen.dart';
-import 'package:compass_software/screens/profiles/hospital_notes/hospital_notes_screen.dart';
+import 'package:compass_software/screens/profiles/notes/notes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../data/entity/hospital_detail_entity.dart';
 import '../../../../utils/image_view.dart';
 import '../hospital_profile_bloc.dart';
@@ -157,7 +156,7 @@ class HospitalProfileView extends StatelessWidget {
               ),
               FilledButton(
                 onPressed: () {
-                  context.navigate(HospitalNotesScreen(hospitalId: hospitalDetail.id ?? ""));
+                  context.navigate(NotesScreen(id: hospitalDetail.id ?? "", isSurgeon: false));
                 },
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all<EdgeInsetsGeometry>(

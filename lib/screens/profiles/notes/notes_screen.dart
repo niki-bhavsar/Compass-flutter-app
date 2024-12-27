@@ -1,29 +1,32 @@
 import 'package:compass_software/extension/build_context_extension.dart';
-import 'package:compass_software/screens/profiles/surgeon_notes/widget/surgeon_notes_card_view.dart';
-import 'package:compass_software/screens/profiles/surgeon_notes/widget/surgeon_notes_state_view.dart';
+import 'package:compass_software/screens/profiles/notes/widget/notes_card_view.dart';
+import 'package:compass_software/screens/profiles/notes/widget/notes_state_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/repository/profiles_repository.dart';
 import '../../login/login_screen.dart';
-import 'bloc/surgeon_notes_event.dart';
-import 'bloc/surgeon_notes_state.dart';
-import 'surgeon_notes_bloc.dart';
+import 'bloc/notes_event.dart';
+import 'bloc/notes_state.dart';
+import 'notes_bloc.dart';
 
-class SurgeonNotesScreen extends StatelessWidget {
-  final String surgeonId;
-  const SurgeonNotesScreen({
+class NotesScreen extends StatelessWidget {
+  final String id;
+  final bool isSurgeon;
+  const NotesScreen({
     super.key,
-    required this.surgeonId,
+    required this.id,
+    required this.isSurgeon,
   });
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => SurgeonNotesBloc(
+      create: (_) => NotesBloc(
         profilesRepository: context.read<ProfilesRepository>(),
-        surgeonId: surgeonId,
+        id: id,
+        isSurgeon: isSurgeon,
       )..add(
-          SurgeonNotesFetchEvent(),
+          NotesFetchEvent(),
         ),
       child: _HospitalNotesScaffold(),
     );
@@ -39,17 +42,17 @@ class _HospitalNotesScaffold extends StatelessWidget {
         title: Text(context.l10n.hospitalNotesScreen_title),
         centerTitle: false,
       ),
-      body: BlocConsumer<SurgeonNotesBloc, SurgeonNotesState>(
+      body: BlocConsumer<NotesBloc, NotesState>(
         listener: (context, state) {
-          if (state is SurgeonNotesErrorState && state.isAuthError == true) {
+          if (state is NotesErrorState && state.isAuthError == true) {
             context.navigateAndReplace(const LoginScreen());
           }
         },
         builder: (context, state) {
-          if (state is SurgeonNotesResultState) {
-            return _SurgeonNotesList();
+          if (state is NotesResultState) {
+            return _NotesList();
           } else {
-            return SurgeonNotesStateView(
+            return NotesStateView(
               state: state,
             );
           }
@@ -59,18 +62,18 @@ class _HospitalNotesScaffold extends StatelessWidget {
   }
 }
 
-class _SurgeonNotesList extends StatelessWidget {
+class _NotesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<SurgeonNotesBloc>();
+    final bloc = context.read<NotesBloc>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 1),
-        itemCount: bloc.surgeonNotesList.length,
+        itemCount: bloc.notesList.length,
         itemBuilder: (BuildContext context, int index) {
-          return SurgeonNotesCardView(
-            notesData: bloc.surgeonNotesList[index],
+          return NotesCardView(
+            notesData: bloc.notesList[index],
           );
         },
         separatorBuilder: (context, index) {

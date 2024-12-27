@@ -22,13 +22,20 @@ class SurgeonProfileScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => SurgeonProfileBloc(
         profilesRepository: context.read<ProfilesRepository>(),
-      )..add(SurgeonProfileFetchEvent(surgeon.surgeonId)),
-      child: _SurgeonProfileScaffold(),
+      )..add(
+          SurgeonProfileFetchEvent(surgeon.surgeonId),
+        ),
+      child: _SurgeonProfileScaffold(
+        surgeon: surgeon,
+      ),
     );
   }
 }
 
 class _SurgeonProfileScaffold extends StatelessWidget {
+  final SurgeonData surgeon;
+
+  const _SurgeonProfileScaffold({required this.surgeon});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +44,12 @@ class _SurgeonProfileScaffold extends StatelessWidget {
         listener: (context, state) {
           if (state is SurgeonProfileErrorState && state.isAuthError == true) {
             context.navigateAndReplace(const LoginScreen());
+          } else if (state is SurgeonProfileResultState) {
+            context.read<SurgeonProfileBloc>().add(SurgeonProfileEventsFetch(surgeon.surgeonId));
           }
         },
         builder: (context, state) {
-          if (state is SurgeonProfileResultState) {
+          if (state is SurgeonEventsResultState) {
             return const SurgeonProfileView();
           } else {
             return SurgeonProfileStateView(

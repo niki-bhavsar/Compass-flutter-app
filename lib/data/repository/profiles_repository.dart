@@ -1,11 +1,11 @@
 import 'package:compass_software/data/entity/base_entity.dart';
-import 'package:compass_software/data/entity/hospital_notes_entity.dart';
+import 'package:compass_software/data/entity/notes_entity.dart';
 import 'package:compass_software/data/entity/surgeon_entity.dart';
+import 'package:compass_software/data/entity/surgeon_events_entity.dart';
 import '../entity/hospital_contact_entity.dart';
 import '../entity/hospital_detail_entity.dart';
 import '../entity/hospital_entity.dart';
 import '../entity/surgeon_detail_entity.dart';
-import '../entity/surgeon_notes_entity.dart';
 import '../service/model/call_result.dart';
 import '../service/profiles_service.dart';
 import '../shared_pref/session_pref.dart';
@@ -13,7 +13,7 @@ import '../shared_pref/session_pref.dart';
 abstract interface class ProfilesRepository {
   Future<CallResult<HospitalEntity>> getHospitalList();
   Future<CallResult<HospitalDetailEntity>> getHospitalDetails(String hospitalId);
-  Future<CallResult<HospitalNotesEntity>> getHospitalNotes(String hospitalId);
+  Future<CallResult<NotesEntity>> getHospitalNotes(String hospitalId);
   Future<CallResult<HospitalContactEntity>> getHospitalContacts(String hospitalId);
   Future<CallResult<BaseEntity>> addHospitalContacts({
     required String hospitalId,
@@ -28,7 +28,8 @@ abstract interface class ProfilesRepository {
 
   Future<CallResult<SurgeonEntity>> getSurgeonList();
   Future<CallResult<SurgeonDetailEntity>> getSurgeonDetails(String surgeonID);
-  Future<CallResult<SurgeonNotesEntity>> getSurgeonNotes(String surgeonID);
+  Future<CallResult<NotesEntity>> getSurgeonNotes(String surgeonID);
+  Future<CallResult<SurgeonEventsEntity>> getSurgeonEvents(String surgeonID);
 }
 
 base class ProfilesRepositoryImpl implements ProfilesRepository {
@@ -51,7 +52,7 @@ base class ProfilesRepositoryImpl implements ProfilesRepository {
   }
 
   @override
-  Future<CallResult<HospitalNotesEntity>> getHospitalNotes(String hospitalId) {
+  Future<CallResult<NotesEntity>> getHospitalNotes(String hospitalId) {
     return profilesService.getHospitalNotes(hospitalId);
   }
 
@@ -95,7 +96,12 @@ base class ProfilesRepositoryImpl implements ProfilesRepository {
   }
 
   @override
-  Future<CallResult<SurgeonNotesEntity>> getSurgeonNotes(String surgeonID) {
+  Future<CallResult<NotesEntity>> getSurgeonNotes(String surgeonID) {
     return profilesService.getSurgeonNotes(surgeonID);
+  }
+
+  @override
+  Future<CallResult<SurgeonEventsEntity>> getSurgeonEvents(String surgeonID) {
+    return profilesService.getSurgeonEvents(surgeonID);
   }
 }

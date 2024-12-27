@@ -6,6 +6,8 @@ class SurgeonProfileLoadingState extends SurgeonProfileState {}
 
 class SurgeonProfileResultState extends SurgeonProfileState {}
 
+class SurgeonEventsResultState extends SurgeonProfileState {}
+
 class SurgeonProfileErrorState extends SurgeonProfileState {
   final String error;
   final bool isAuthError;

@@ -1,10 +1,10 @@
-import 'package:compass_software/data/entity/hospital_notes_entity.dart';
+import 'package:compass_software/data/entity/notes_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-class HospitalNotesCardView extends StatelessWidget {
-  final HospitalNotesData notesData;
-  const HospitalNotesCardView({
+class NotesCardView extends StatelessWidget {
+  final NotesData notesData;
+  const NotesCardView({
     super.key,
     required this.notesData,
   });

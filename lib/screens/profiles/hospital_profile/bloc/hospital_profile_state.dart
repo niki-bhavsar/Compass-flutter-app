@@ -6,8 +6,6 @@ class HospitalProfileLoadingState extends HospitalProfileState {}
 
 class HospitalProfileResultState extends HospitalProfileState {}
 
-class HospitalNotesResultState extends HospitalProfileState {}
-
 class HospitalProfileErrorState extends HospitalProfileState {
   final String error;
   final bool isAuthError;

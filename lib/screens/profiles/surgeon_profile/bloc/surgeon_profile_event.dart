@@ -5,3 +5,9 @@ class SurgeonProfileFetchEvent extends SurgeonProfileEvent {
 
   SurgeonProfileFetchEvent(this.surgeonID);
 }
+
+class SurgeonProfileEventsFetch extends SurgeonProfileEvent {
+  final String surgeonID;
+
+  SurgeonProfileEventsFetch(this.surgeonID);
+}

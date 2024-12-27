@@ -1,11 +1,11 @@
 import 'package:compass_software/data/entity/base_entity.dart';
 import 'package:compass_software/data/entity/hospital_contact_entity.dart';
 import 'package:compass_software/data/entity/hospital_detail_entity.dart';
-import 'package:compass_software/data/entity/hospital_notes_entity.dart';
+import 'package:compass_software/data/entity/notes_entity.dart';
 import 'package:compass_software/data/entity/surgeon_detail_entity.dart';
 import 'package:compass_software/data/entity/surgeon_entity.dart';
+import 'package:compass_software/data/entity/surgeon_events_entity.dart';
 import '../entity/hospital_entity.dart';
-import '../entity/surgeon_notes_entity.dart';
 import 'base_service.dart';
 import 'model/call_result.dart';
 
@@ -28,12 +28,12 @@ class ProfilesService extends BaseService {
     );
   }
 
-  Future<CallResult<HospitalNotesEntity>> getHospitalNotes(String hospitalId) {
+  Future<CallResult<NotesEntity>> getHospitalNotes(String hospitalId) {
     final uri = toApiUri("gethospitalnotes");
     final header = {"id": hospitalId};
-    return safeGetApiCall<HospitalNotesEntity>(
+    return safeGetApiCall<NotesEntity>(
       uri: uri,
-      jsonParser: hospitalNotesEntityFromJson,
+      jsonParser: notesEntityFromJson,
       headers: header,
     );
   }
@@ -100,12 +100,22 @@ class ProfilesService extends BaseService {
     );
   }
 
-  Future<CallResult<SurgeonNotesEntity>> getSurgeonNotes(String surgeonId) {
+  Future<CallResult<NotesEntity>> getSurgeonNotes(String surgeonId) {
     final uri = toApiUri("getsurgeonnotes");
     final header = {"id": surgeonId};
-    return safeGetApiCall<SurgeonNotesEntity>(
+    return safeGetApiCall<NotesEntity>(
       uri: uri,
-      jsonParser: surgeonNotesEntityFromJson,
+      jsonParser: notesEntityFromJson,
+      headers: header,
+    );
+  }
+
+  Future<CallResult<SurgeonEventsEntity>> getSurgeonEvents(String surgeonId) {
+    final uri = toApiUri("getsurgeonevents");
+    final header = {"id": surgeonId};
+    return safeGetApiCall<SurgeonEventsEntity>(
+      uri: uri,
+      jsonParser: surgeonEventsEntityFromJson,
       headers: header,
     );
   }

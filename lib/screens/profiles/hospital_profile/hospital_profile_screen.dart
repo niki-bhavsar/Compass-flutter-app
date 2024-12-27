@@ -40,7 +40,7 @@ class _HospitalProfileScaffold extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          if (state is HospitalNotesResultState) {
+          if (state is HospitalProfileResultState) {
             return const HospitalProfileView();
           } else {
             return HospitalProfileStateView(

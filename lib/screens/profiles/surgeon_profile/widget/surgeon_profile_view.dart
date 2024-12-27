@@ -1,10 +1,10 @@
 import 'package:compass_software/data/entity/surgeon_detail_entity.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
-import 'package:compass_software/screens/profiles/surgeon_notes/surgeon_notes_screen.dart';
 import 'package:compass_software/screens/profiles/surgeon_profile/widget/surgeon_profile_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../utils/image_view.dart';
+import '../../notes/notes_screen.dart';
 import '../surgeon_profile_bloc.dart';
 
 class SurgeonProfileView extends StatelessWidget {
@@ -124,7 +124,7 @@ class SurgeonProfileView extends StatelessWidget {
               ),
               FilledButton(
                 onPressed: () {
-                  context.navigate(SurgeonNotesScreen(surgeonId: surgeonDetail.id ?? ""));
+                  context.navigate(NotesScreen(id: surgeonDetail.id ?? "", isSurgeon: true));
                 },
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
