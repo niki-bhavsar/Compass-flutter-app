@@ -197,7 +197,26 @@
   "surgeonProfilesScreen_training_medical_school":"Medical School",
   "surgeonProfilesScreen_training_residency":"Residency",
   "surgeonProfilesScreen_training_fellowship":"Fellowship",
-  "surgeonProfilesScreen_training_notes":"Notes"
+  "surgeonProfilesScreen_training_notes":"Notes",
+
+  "backOrderReportScreen_title":"BackOrder Report",
+  "backOrderReportScreen_view_by":"View By",
+  "backOrderReportScreen_filter_by":"Filter By",
+  "backOrderReportScreen_product":"Product",
+  "backOrderReportScreen_location":"Location",
+  "backOrderReportScreen_view_all":"View All",
+  "backOrderReportScreen_today":"Today",
+  "backOrderReportScreen_location_qty":"Qty",
+  "backOrderReportScreen_location_date_ordered":"Date Ordered: ",
+  "backOrderReportScreen_location_order_number":"Order Number: ",
+  "backOrderReportScreen_location_days_on_backOrder":"Days on Backorder: ",
+  "backOrderReportScreen_location_notes":"Notes: ",
+  "backOrderReportScreen_product_total_qty":"Total Qty",
+  "backOrderReportScreen_product_open_qty":"Open Qty: ",
+  "backOrderReportScreen_product_part_number":"Part Number: ",
+  "backOrderReportScreen_product_description":"Description: ",
+  "backOrderReportScreen_product_no_data_message":"No product backorder report found",
+  "backOrderReportScreen_location_no_data_message":"No location backorder report found"
 
 
 

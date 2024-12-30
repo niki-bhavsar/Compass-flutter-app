@@ -2,6 +2,7 @@ import 'package:compass_software/data/repository/auth_repository.dart';
 import 'package:compass_software/extension/build_context_extension.dart';
 import 'package:compass_software/firebase/analytics.dart';
 import 'package:compass_software/screens/annnouncement/announcements/announcements_screen.dart';
+import 'package:compass_software/screens/backOrder_report/back_order_report_screen.dart';
 import 'package:compass_software/screens/change_password/change_password_screen.dart';
 import 'package:compass_software/screens/favourite_hospital/favourite_hospital_screen.dart';
 import 'package:compass_software/screens/favourite_procedure/favourite_procedure_screen.dart';
@@ -79,7 +80,9 @@ class SettingScreen extends StatelessWidget {
       SettingMenu(
         title: context.l10n.settingsScreen_reports_backorder_report,
         svgIcon: SvgIcons.backOrder,
-        onTap: (context) {},
+        onTap: (context) {
+          context.navigate(const BackorderReportScreen());
+        },
       ),
       SettingMenu(
         title: context.l10n.settingsScreen_reports_sales_snapshot,

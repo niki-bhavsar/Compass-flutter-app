@@ -16,71 +16,91 @@ class AppTheme {
   }
 
   static ThemeData theme = ThemeData(
-      useMaterial3: true,
-      colorScheme: lightColorScheme,
-      fontFamily: AppTypography.defaultFont,
-      textTheme: AppTypography.textTheme,
-      filledButtonTheme: _filledButtonTheme,
-      outlinedButtonTheme: _outlinedButtonTheme,
-      inputDecorationTheme: _inputDecorationTheme,
-      visualDensity: VisualDensity.standard,
-      navigationBarTheme: NavigationBarThemeData(
-        indicatorColor: lightColorScheme.tertiaryFixedDim,
+    useMaterial3: true,
+    colorScheme: lightColorScheme,
+    fontFamily: AppTypography.defaultFont,
+    textTheme: AppTypography.textTheme,
+    filledButtonTheme: _filledButtonTheme,
+    outlinedButtonTheme: _outlinedButtonTheme,
+    inputDecorationTheme: _inputDecorationTheme,
+    visualDensity: VisualDensity.standard,
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: lightColorScheme.tertiaryFixedDim,
+    ),
+    appBarTheme: AppBarTheme(
+      centerTitle: false,
+      titleTextStyle: AppTypography.textTheme.headlineLarge?.copyWith(
+        color: lightColorScheme.primary,
       ),
-      appBarTheme: AppBarTheme(
-        centerTitle: false,
-        titleTextStyle: AppTypography.textTheme.headlineLarge?.copyWith(
-          color: lightColorScheme.primary,
+    ),
+    iconTheme: IconThemeData(
+      color: lightColorScheme.onSurface,
+    ),
+    cardTheme: CardTheme(
+      margin: EdgeInsets.zero,
+      elevation: 0,
+      shape: const RoundedRectangleBorder(
+        borderRadius: _defaultBorderRadius,
+      ),
+      color: lightColorScheme.onPrimary,
+    ),
+    dividerColor: Colors.transparent,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: lightColorScheme.primary,
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: SegmentedButton.styleFrom(
+        selectedForegroundColor: lightColorScheme.onPrimary,
+        selectedBackgroundColor: lightColorScheme.primary,
+        textStyle: AppTypography.textTheme.labelSmall?.copyWith(
+          fontWeight: FontWeight.w500,
         ),
       ),
-      iconTheme: IconThemeData(
-        color: lightColorScheme.onSurface,
-      ),
-      cardTheme: CardTheme(
-        margin: EdgeInsets.zero,
-        elevation: 0,
-        shape: const RoundedRectangleBorder(
-          borderRadius: _defaultBorderRadius,
-        ),
-        color: lightColorScheme.onPrimary,
-      ),
-      dividerColor: Colors.transparent,
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: lightColorScheme.primary,
-      ));
+    ),
+  );
 
   static ThemeData darkTheme = ThemeData(
-      useMaterial3: true,
-      colorScheme: darkColorScheme,
-      fontFamily: AppTypography.defaultFont,
-      textTheme: AppTypography.textTheme,
-      filledButtonTheme: _filledButtonTheme,
-      outlinedButtonTheme: _outlinedButtonTheme,
-      inputDecorationTheme: _inputDecorationTheme,
-      visualDensity: VisualDensity.standard,
-      navigationBarTheme: NavigationBarThemeData(
-        indicatorColor: darkColorScheme.secondaryContainer,
+    useMaterial3: true,
+    colorScheme: darkColorScheme,
+    fontFamily: AppTypography.defaultFont,
+    textTheme: AppTypography.textTheme,
+    filledButtonTheme: _filledButtonTheme,
+    outlinedButtonTheme: _outlinedButtonTheme,
+    inputDecorationTheme: _inputDecorationTheme,
+    visualDensity: VisualDensity.standard,
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: darkColorScheme.secondaryContainer,
+    ),
+    appBarTheme: AppBarTheme(
+      centerTitle: false,
+      titleTextStyle:
+          AppTypography.textTheme.headlineLarge?.copyWith(color: darkColorScheme.primary),
+    ),
+    iconTheme: IconThemeData(
+      color: darkColorScheme.onSurface,
+    ),
+    cardTheme: CardTheme(
+      elevation: 0,
+      margin: EdgeInsets.zero,
+      shape: const RoundedRectangleBorder(
+        borderRadius: _defaultBorderRadius,
       ),
-      appBarTheme: AppBarTheme(
-        centerTitle: false,
-        titleTextStyle:
-            AppTypography.textTheme.headlineLarge?.copyWith(color: darkColorScheme.primary),
-      ),
-      iconTheme: IconThemeData(
-        color: darkColorScheme.onSurface,
-      ),
-      cardTheme: CardTheme(
-        elevation: 0,
-        margin: EdgeInsets.zero,
-        shape: const RoundedRectangleBorder(
-          borderRadius: _defaultBorderRadius,
+      color: darkColorScheme.onPrimary,
+    ),
+    dividerColor: Colors.transparent,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: darkColorScheme.primary,
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: SegmentedButton.styleFrom(
+        selectedForegroundColor: darkColorScheme.onPrimary,
+        selectedBackgroundColor: darkColorScheme.primary,
+        textStyle: AppTypography.textTheme.labelSmall?.copyWith(
+          fontWeight: FontWeight.w500,
         ),
-        color: darkColorScheme.onPrimary,
       ),
-      dividerColor: Colors.transparent,
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: darkColorScheme.primary,
-      ));
+    ),
+  );
 
   static final FilledButtonThemeData _filledButtonTheme = FilledButtonThemeData(
     style: ButtonStyle(

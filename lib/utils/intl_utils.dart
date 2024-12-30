@@ -33,4 +33,11 @@ class IntlUtil {
     DateFormat format = DateFormat(dateFormat);
     return format.format(datetime);
   }
+
+  //date format  = 01/31/2024 // date only
+  static String? getOnCreateDate(DateTime? datetime, {String dateFormat = "MMM dd, yyyy"}) {
+    if (datetime == null) return null;
+    DateFormat format = DateFormat(dateFormat);
+    return format.format(datetime);
+  }
 }

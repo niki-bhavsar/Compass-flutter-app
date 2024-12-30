@@ -1,4 +1,5 @@
 import 'package:compass_software/data/entity/announcement_entity.dart';
+import 'package:compass_software/data/entity/back_order_report_product_entity.dart';
 import 'package:compass_software/data/entity/base_entity.dart';
 import 'package:compass_software/data/entity/technique_library_entity.dart';
 import 'package:compass_software/data/entity/template_implant_instrument_filtercategory.dart';
@@ -7,6 +8,8 @@ import 'package:compass_software/data/entity/template_kits_detail_entiry.dart';
 import 'package:compass_software/data/entity/templates_list_entity.dart';
 import 'package:compass_software/data/service/base_service.dart';
 import 'package:compass_software/data/service/model/call_result.dart';
+
+import '../entity/back_order_report_location_entity.dart';
 
 class SettingsService extends BaseService {
   Future<CallResult<AnnouncementsEntity>> getAnnouncements() {
@@ -81,5 +84,35 @@ class SettingsService extends BaseService {
       "implant": implant,
       "instrument": instruments
     });
+  }
+
+  Future<CallResult<BackorderReportLocationEntity>> getBackOrderListByLocation(
+    String viewRecord,
+  ) {
+    final uri = toApiUri("getbackorderlist");
+    final header = {
+      "viewby": "location",
+      "viewrecord": viewRecord,
+    };
+    return safeGetApiCall(
+      uri: uri,
+      jsonParser: backorderReportLocationEntityFromJson,
+      headers: header,
+    );
+  }
+
+  Future<CallResult<BackorderReportProductEntity>> getBackOrderListByProduct(
+    String viewRecord,
+  ) {
+    final uri = toApiUri("getbackorderlist");
+    final header = {
+      "viewby": "product",
+      "viewrecord": viewRecord,
+    };
+    return safeGetApiCall(
+      uri: uri,
+      jsonParser: backorderReportProductEntityFromJson,
+      headers: header,
+    );
   }
 }

@@ -9,6 +9,9 @@ import 'package:compass_software/data/service/model/call_result.dart';
 import 'package:compass_software/data/service/settings_service.dart';
 import 'package:compass_software/data/shared_pref/session_pref.dart';
 
+import '../entity/back_order_report_location_entity.dart';
+import '../entity/back_order_report_product_entity.dart';
+
 abstract interface class SettingsRepository {
   Future<CallResult<AnnouncementsEntity>> getAnnouncements();
 
@@ -34,6 +37,12 @@ abstract interface class SettingsRepository {
     List<String> implants,
     List<String> instruments,
   );
+
+  Future<CallResult<BackorderReportLocationEntity>> getBackOrderListByLocation(
+      {required String viewRecord});
+
+  Future<CallResult<BackorderReportProductEntity>> getBackOrderListByProduct(
+      {required String viewRecord});
 }
 
 base class SettingsRepositoryImp extends SettingsRepository {
@@ -107,5 +116,17 @@ base class SettingsRepositoryImp extends SettingsRepository {
     return settingService.getImplantsInstrumentsforTemplate(
       templateId,
     );
+  }
+
+  @override
+  Future<CallResult<BackorderReportLocationEntity>> getBackOrderListByLocation(
+      {required String viewRecord}) {
+    return settingService.getBackOrderListByLocation(viewRecord);
+  }
+
+  @override
+  Future<CallResult<BackorderReportProductEntity>> getBackOrderListByProduct(
+      {required String viewRecord}) {
+    return settingService.getBackOrderListByProduct(viewRecord);
   }
 }
