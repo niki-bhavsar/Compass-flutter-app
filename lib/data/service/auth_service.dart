@@ -31,6 +31,7 @@ class AuthService extends BaseService {
     );
   }
 
+
   Future<CallResult<DistributorEntity>> verifyDistributorCode(String code) {
     final params = <String, String>{};
     params["app_code"] = code;
